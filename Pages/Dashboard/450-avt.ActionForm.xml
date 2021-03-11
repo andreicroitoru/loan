@@ -37,7 +37,7 @@
   &lt;Fields&gt;
     &lt;Field&gt;
       &lt;Id&gt;&lt;![CDATA[134]]&gt;&lt;/Id&gt;
-      &lt;Title&gt;&lt;![CDATA[Filter Status]]&gt;&lt;/Title&gt;
+      &lt;Title&gt;&lt;![CDATA[Filter]]&gt;&lt;/Title&gt;
       &lt;ShortDesc&gt;&lt;![CDATA[]]&gt;&lt;/ShortDesc&gt;
       &lt;CustomAttributesJson&gt;&lt;![CDATA[[]]]&gt;&lt;/CustomAttributesJson&gt;
       &lt;IsEnabled&gt;True&lt;/IsEnabled&gt;

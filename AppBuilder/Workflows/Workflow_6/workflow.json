@@ -1,0 +1,105 @@
+{
+  "Id": 6,
+  "Name": "Regex2",
+  "Description": "/\\[\\s*\"|\"\\s*\\]/g",
+  "IsDebug": false,
+  "ActionList": {
+    "Id": 31,
+    "EventName": "Event",
+    "Actions": [
+      {
+        "Id": 41,
+        "ActionType": "RegexReplacer",
+        "OrderIndex": 0,
+        "ActionParameters": [
+          {
+            "Id": 260,
+            "Name": "Data",
+            "Value": [
+              {
+                "TokenName": {
+                  "IsExpression": false,
+                  "Expression": "",
+                  "Value": "Return"
+                },
+                "Input": {
+                  "IsExpression": false,
+                  "Expression": "",
+                  "Value": "[Input]"
+                },
+                "PatternValue": {
+                  "IsExpression": false,
+                  "Expression": "",
+                  "Value": "[Pattern]"
+                },
+                "ReplaceValue": {
+                  "IsExpression": false,
+                  "Expression": "",
+                  "Value": "[Replace]"
+                }
+              }
+            ],
+            "IsExpression": false,
+            "ActionId": 41,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 265,
+            "Name": "ApplyTokensOnPattern",
+            "IsExpression": false,
+            "ActionId": 41,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 266,
+            "Name": "CompileRegex",
+            "IsExpression": false,
+            "ActionId": 41,
+            "OrderIndex": 0
+          }
+        ],
+        "DiagramUID": "Activity_1j8fx5v"
+      }
+    ]
+  },
+  "CreatedBy": "SuperUser Account",
+  "CreatedOn": "2021-03-09T13:56:15.2577347+00:00",
+  "LastModifiedBy": "SuperUser Account",
+  "LastModifiedOn": "2021-03-09T14:28:44.2352146+00:00",
+  "InputFields": [
+    {
+      "Required": false,
+      "Id": 24,
+      "Name": "Input",
+      "InputType": "Text",
+      "WorkflowId": 6,
+      "IsDeleted": false
+    },
+    {
+      "Required": false,
+      "Id": 25,
+      "Name": "Pattern",
+      "InputType": "Text",
+      "WorkflowId": 6,
+      "IsDeleted": false
+    },
+    {
+      "Required": false,
+      "Id": 26,
+      "Name": "Replace",
+      "InputType": "Text",
+      "WorkflowId": 6,
+      "IsDeleted": false
+    }
+  ],
+  "OutputFields": [
+    {
+      "Value": "[Return]",
+      "Id": 27,
+      "Name": "Output",
+      "InputType": "Text",
+      "WorkflowId": 6,
+      "IsDeleted": false
+    }
+  ]
+}

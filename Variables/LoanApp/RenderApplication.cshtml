@@ -1,0 +1,77 @@
+@inherits avt.MyTokens.Core.ParsingEngine.RazorTemplate
+@{
+  var data = LoanApp.AppInfo(Id:TknParams.Id.Value.ToString());
+  var i = 1;
+  double AmountPaid = 0;
+  double AmountLeft = Math.Round(Double.Parse(data.Amount.ToString()),2) + (0.05 * Math.Round(Double.Parse(data.Amount.ToString()),2) / 12 * Math.Round(Double.Parse(data.Length.ToString()),2)) ;
+}
+
+
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+<div>
+  <b>Application Name:</b> @data.ApplicationName <br>
+  <b>Date Created:</b> @data.CreatedDate <br>
+  <b>Duration:</b> @data.Length Months <br>
+  <b>Amount Requested:</b> $ @data.ConvertedAmount
+</div>
+
+<div>
+   <u><h2 style="text-align: center;">Loan Agreement</h2></u>
+</div>
+<br>
+<br>
+<div>
+&nbsp;This Loan Agreement (this “Agreement”), is made as of this @DateTime.Now.ToShortDateString() by and among/between:<br><br>
+  <div>
+    <b>&nbsp;Borrower: </b>@data.FirstName @data.LastName <br>&nbsp;and<br>
+    <b>&nbsp;Lender: </b>Loan Application Program Inc.<br><br>
+  </div>
+  &nbsp;The parties agree as follows:<br><br>
+  &nbsp;<b>1. Loan Amount. </b>Lender agrees to loan Borrower the principal sum of $ @data.ConvertedAmount (the “Loan”),
+together with interest on the outstanding principal amount of the Loan (the "Principal Balance"), and in
+accordance with the terms set forth below.<br>
+&nbsp;<b>2. Repayment of Loan. </b>All payments under
+this Agreement are applied first to accrued interest and then to the Principal Balance. The Loan shall be
+payable in installments equal to $ @Math.Round(Double.Parse(data.InstallmentRate.ToString()),2).<br>
+&nbsp;<b>3. Costs and Expenses. </b>Borrower shall pay to Lender all costs of collection, including reasonable
+attorney's fees, Lender incurs in enforcing this Agreement.<br>
+&nbsp;<b>4. Amendment. </b>This Agreement may be amended or modified only by a written agreement signed by
+Borrower and Lender.<br>
+&nbsp;<b>5. Entire Agreement. </b>This Agreement contains the entire understanding between the parties and
+supersedes and cancels all prior agreements of the parties, whether oral or written, with respect to such
+subject matter.
+</div>
+<br>
+<table class="table">
+  <tbody>
+      <tr>
+          <td style="color:#4b48ab; text-align: center;"><strong>Month</strong></td>
+          <td style="color:#4b48ab; text-align: center;"><strong>Installment Rate Per Month</strong></td>
+          <td style="color:#4b48ab; text-align: center;"><strong>Amount paid untill now</strong></td>
+          <td style="color:#4b48ab; text-align: center;"><strong>Amount left to be paid</strong></td>
+      </tr>
+      @for(i=1;i <= @Int32.Parse(data.Length.ToString());i++){
+      <tr>
+          <td style="vertical-align: middle; text-align: center;">@i</td>
+          <td style="vertical-align: middle; text-align: center;">$ @Math.Round(Double.Parse(data.InstallmentRate.ToString()),2)</td>
+          <td style="vertical-align: middle; text-align: center;">$ @AmountPaid</td>
+          <td style="vertical-align: middle; text-align: center;">$ @AmountLeft</td>
+      </tr>
+      @{AmountPaid = AmountPaid + Math.Round(Double.Parse(data.InstallmentRate.ToString()),2);}
+      @{AmountLeft = Math.Round(AmountLeft - Math.Round(Double.Parse(data.InstallmentRate.ToString()),2),2);}
+      }
+      
+  </tbody>
+</table>
+
+
+
+<div>
+  Client Signature:<br>
+  <img src="@data.Signature"></img>
+</div>

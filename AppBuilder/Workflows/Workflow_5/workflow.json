@@ -1,0 +1,305 @@
+{
+  "Id": 5,
+  "Name": "Check High Risks",
+  "Description": "Verifies if the Application has only High Risk posibilities",
+  "IsDebug": false,
+  "ActionList": {
+    "Id": 17,
+    "EventName": "Event",
+    "Actions": [
+      {
+        "Id": 20,
+        "Description": "Run SQL Query",
+        "ActionType": "RunSql",
+        "OrderIndex": 0,
+        "ActionParameters": [
+          {
+            "Id": 130,
+            "Name": "ConnectionString",
+            "IsExpression": false,
+            "ActionId": 20,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 131,
+            "Name": "QueryTimeout",
+            "IsExpression": false,
+            "ActionId": 20,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 132,
+            "Name": "SqlQuery",
+            "Value": "SELECT COUNT(R.Id) AS TotalRisks, \n(\tSELECT COUNT(Rs.RiskLevel) \n\tFROM app.Risk AS Rs\n\tINNER JOIN app.Approval AS A ON A.Id = Rs.Approval\n\tWHERE A.Application = @appID AND RS.RiskLevel = 'High'\n) AS HighRisks\nFROM app.Risk AS R\nINNER JOIN app.Approval AS A ON A.Id = R.Approval\nWHERE A.Application = @appID\nGROUP BY R.Approval",
+            "IsExpression": false,
+            "ActionId": 20,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 133,
+            "Name": "BindTokens",
+            "Value": [
+              {
+                "value": "[AppID]",
+                "$$hashKey": "object:52",
+                "name": "appID"
+              }
+            ],
+            "IsExpression": false,
+            "ActionId": 20,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 134,
+            "Name": "OutputTokenName",
+            "Value": "App",
+            "IsExpression": false,
+            "ActionId": 20,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 135,
+            "Name": "ExtractColumns",
+            "IsExpression": false,
+            "ActionId": 20,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 136,
+            "Name": "OnError",
+            "Value": {
+              "Id": 18,
+              "EventName": "OnError",
+              "Actions": []
+            },
+            "IsExpression": false,
+            "ActionId": 20,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 137,
+            "Name": "ShowErrors",
+            "IsExpression": false,
+            "ActionId": 20,
+            "OrderIndex": 0
+          }
+        ],
+        "DiagramUID": "Activity_0r9jffc"
+      },
+      {
+        "Id": 21,
+        "Description": "",
+        "ActionErrorMessage": "",
+        "Condition": "",
+        "ActionType": "PlantAnApp.ExecuteConditionally",
+        "OrderIndex": 1,
+        "ActionParameters": [
+          {
+            "Id": 138,
+            "Name": "ConditionedActions",
+            "Value": [
+              {
+                "Condition": {
+                  "IsExpression": false,
+                  "Expression": "",
+                  "Value": "[App:TotalRisks] == [App:HighRisks]"
+                },
+                "Actions": {
+                  "Id": 19,
+                  "EventName": "click",
+                  "Actions": [
+                    {
+                      "Id": 22,
+                      "Description": "Run SQL Query",
+                      "ActionType": "RunSql",
+                      "OrderIndex": 0,
+                      "ActionParameters": [
+                        {
+                          "Id": 140,
+                          "Name": "ConnectionString",
+                          "IsExpression": false,
+                          "ActionId": 22,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 141,
+                          "Name": "QueryTimeout",
+                          "IsExpression": false,
+                          "ActionId": 22,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 142,
+                          "Name": "SqlQuery",
+                          "Value": "SELECT 'true' AS Result",
+                          "IsExpression": false,
+                          "ActionId": 22,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 143,
+                          "Name": "BindTokens",
+                          "IsExpression": false,
+                          "ActionId": 22,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 144,
+                          "Name": "OutputTokenName",
+                          "Value": "Response",
+                          "IsExpression": false,
+                          "ActionId": 22,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 145,
+                          "Name": "ExtractColumns",
+                          "IsExpression": false,
+                          "ActionId": 22,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 146,
+                          "Name": "OnError",
+                          "Value": {
+                            "Id": 20,
+                            "EventName": "OnError",
+                            "Actions": []
+                          },
+                          "IsExpression": false,
+                          "ActionId": 22,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 147,
+                          "Name": "ShowErrors",
+                          "IsExpression": false,
+                          "ActionId": 22,
+                          "OrderIndex": 0
+                        }
+                      ],
+                      "DiagramUID": "Activity_19z43dx"
+                    }
+                  ]
+                }
+              },
+              {
+                "Condition": {
+                  "IsExpression": false,
+                  "Expression": "",
+                  "Value": "[App:TotalRisks] != [App:HighRisks]"
+                },
+                "Actions": {
+                  "Id": 21,
+                  "EventName": "click",
+                  "Actions": [
+                    {
+                      "Id": 23,
+                      "Description": "Run SQL Query",
+                      "ActionType": "RunSql",
+                      "OrderIndex": 0,
+                      "ActionParameters": [
+                        {
+                          "Id": 150,
+                          "Name": "ConnectionString",
+                          "IsExpression": false,
+                          "ActionId": 23,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 151,
+                          "Name": "QueryTimeout",
+                          "IsExpression": false,
+                          "ActionId": 23,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 152,
+                          "Name": "SqlQuery",
+                          "Value": "SELECT 'false' AS Result",
+                          "IsExpression": false,
+                          "ActionId": 23,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 153,
+                          "Name": "BindTokens",
+                          "IsExpression": false,
+                          "ActionId": 23,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 154,
+                          "Name": "OutputTokenName",
+                          "Value": "Response",
+                          "IsExpression": false,
+                          "ActionId": 23,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 155,
+                          "Name": "ExtractColumns",
+                          "IsExpression": false,
+                          "ActionId": 23,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 156,
+                          "Name": "OnError",
+                          "Value": {
+                            "Id": 22,
+                            "EventName": "OnError",
+                            "Actions": []
+                          },
+                          "IsExpression": false,
+                          "ActionId": 23,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 157,
+                          "Name": "ShowErrors",
+                          "IsExpression": false,
+                          "ActionId": 23,
+                          "OrderIndex": 0
+                        }
+                      ],
+                      "DiagramUID": "Activity_07pbkkm"
+                    }
+                  ]
+                }
+              }
+            ],
+            "IsExpression": false,
+            "ActionId": 21,
+            "OrderIndex": 0
+          }
+        ],
+        "DiagramUID": "Gateway_0x6otvn"
+      }
+    ]
+  },
+  "CreatedBy": "SuperUser Account",
+  "CreatedOn": "2021-03-09T11:44:18.3074783+00:00",
+  "LastModifiedBy": "SuperUser Account",
+  "LastModifiedOn": "2021-03-09T11:50:56.1060097+00:00",
+  "InputFields": [
+    {
+      "Required": false,
+      "Id": 19,
+      "Name": "AppID",
+      "InputType": "Text",
+      "WorkflowId": 5,
+      "IsDeleted": false
+    }
+  ],
+  "OutputFields": [
+    {
+      "Value": "[Response]",
+      "Id": 20,
+      "Name": "Output",
+      "InputType": "Text",
+      "WorkflowId": 5,
+      "IsDeleted": false
+    }
+  ]
+}

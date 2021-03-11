@@ -1,0 +1,127 @@
+{
+  "Id": 1,
+  "Name": "AgeLimit",
+  "Description": "Calculates the Length + Age",
+  "IsDebug": false,
+  "ActionList": {
+    "Id": 1,
+    "EventName": "Event",
+    "Actions": [
+      {
+        "Id": 1,
+        "ActionType": "RunSql",
+        "OrderIndex": 0,
+        "ActionParameters": [
+          {
+            "Id": 1,
+            "Name": "ConnectionString",
+            "IsExpression": false,
+            "ActionId": 1,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 2,
+            "Name": "QueryTimeout",
+            "IsExpression": false,
+            "ActionId": 1,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 3,
+            "Name": "SqlQuery",
+            "Value": "SELECT @length/12 + @age AS AgeLimit",
+            "IsExpression": false,
+            "ActionId": 1,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 4,
+            "Name": "BindTokens",
+            "Value": [
+              {
+                "value": "[Length]",
+                "$$hashKey": "object:52",
+                "name": "length"
+              },
+              {
+                "value": "[Age]",
+                "$$hashKey": "object:58",
+                "name": "age"
+              }
+            ],
+            "IsExpression": false,
+            "ActionId": 1,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 5,
+            "Name": "OutputTokenName",
+            "Value": "AgeLimit",
+            "IsExpression": false,
+            "ActionId": 1,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 6,
+            "Name": "ExtractColumns",
+            "IsExpression": false,
+            "ActionId": 1,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 7,
+            "Name": "OnError",
+            "Value": {
+              "Id": 2,
+              "EventName": "OnError",
+              "Actions": []
+            },
+            "IsExpression": false,
+            "ActionId": 1,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 8,
+            "Name": "ShowErrors",
+            "IsExpression": false,
+            "ActionId": 1,
+            "OrderIndex": 0
+          }
+        ],
+        "DiagramUID": "Activity_0qbbsz9"
+      }
+    ]
+  },
+  "CreatedBy": "SuperUser Account",
+  "CreatedOn": "2021-03-05T14:38:50.2377581+00:00",
+  "LastModifiedBy": "SuperUser Account",
+  "LastModifiedOn": "2021-03-05T14:38:50.2377581+00:00",
+  "InputFields": [
+    {
+      "Required": false,
+      "Id": 1,
+      "Name": "Length",
+      "InputType": "Integer",
+      "WorkflowId": 1,
+      "IsDeleted": false
+    },
+    {
+      "Required": false,
+      "Id": 2,
+      "Name": "Age",
+      "InputType": "Integer",
+      "WorkflowId": 1,
+      "IsDeleted": false
+    }
+  ],
+  "OutputFields": [
+    {
+      "Value": "[AgeLimit]",
+      "Id": 3,
+      "Name": "Output",
+      "InputType": "Text",
+      "WorkflowId": 1,
+      "IsDeleted": false
+    }
+  ]
+}

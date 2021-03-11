@@ -1,0 +1,135 @@
+{
+  "Id": 2,
+  "Name": "Regex",
+  "Description": "Replaces a pattern with nothing",
+  "IsDebug": false,
+  "ActionList": {
+    "Id": 3,
+    "EventName": "Event",
+    "Actions": [
+      {
+        "Id": 2,
+        "ActionType": "RunSql",
+        "OrderIndex": 0,
+        "ActionParameters": [
+          {
+            "Id": 9,
+            "Name": "ConnectionString",
+            "IsExpression": false,
+            "ActionId": 2,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 10,
+            "Name": "QueryTimeout",
+            "IsExpression": false,
+            "ActionId": 2,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 11,
+            "Name": "SqlQuery",
+            "Value": "DECLARE @text AS VARCHAR(max) = @input;\nSELECT REPLACE(TRANSLATE(@text, '[\"\"]', @replace), '#', '')",
+            "IsExpression": false,
+            "ActionId": 2,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 12,
+            "Name": "BindTokens",
+            "Value": [
+              {
+                "value": "[Input]",
+                "$$hashKey": "object:52",
+                "name": "input"
+              },
+              {
+                "value": "[Replace]",
+                "$$hashKey": "object:64",
+                "name": "replace"
+              }
+            ],
+            "IsExpression": false,
+            "ActionId": 2,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 13,
+            "Name": "OutputTokenName",
+            "Value": "RegText",
+            "IsExpression": false,
+            "ActionId": 2,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 14,
+            "Name": "ExtractColumns",
+            "IsExpression": false,
+            "ActionId": 2,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 15,
+            "Name": "OnError",
+            "Value": {
+              "Id": 4,
+              "EventName": "OnError",
+              "Actions": []
+            },
+            "IsExpression": false,
+            "ActionId": 2,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 16,
+            "Name": "ShowErrors",
+            "IsExpression": false,
+            "ActionId": 2,
+            "OrderIndex": 0
+          }
+        ],
+        "DiagramUID": "Activity_0y18l09"
+      }
+    ]
+  },
+  "CreatedBy": "SuperUser Account",
+  "CreatedOn": "2021-03-08T14:12:45.4507153+00:00",
+  "LastModifiedBy": "SuperUser Account",
+  "LastModifiedOn": "2021-03-09T13:41:10.1806306+00:00",
+  "InputFields": [
+    {
+      "Required": false,
+      "Id": 4,
+      "Name": "Input",
+      "InputType": "Text",
+      "WorkflowId": 2,
+      "IsDeleted": false
+    },
+    {
+      "Required": false,
+      "Id": 5,
+      "Name": "Pattern",
+      "InputType": "Text",
+      "WorkflowId": 2,
+      "IsDeleted": false
+    },
+    {
+      "Required": false,
+      "Id": 6,
+      "Name": "Replace",
+      "InputType": "Text",
+      "WorkflowId": 2,
+      "IsDeleted": false
+    }
+  ],
+  "OutputFields": [
+    {
+      "Value": "[RegText]",
+      "Id": 7,
+      "Name": "Output",
+      "InputType": "Text",
+      "WorkflowId": 2,
+      "IsDeleted": false
+    }
+  ]
+}

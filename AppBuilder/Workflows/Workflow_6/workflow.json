@@ -1,6 +1,6 @@
 {
   "Id": 6,
-  "Name": "Regex2",
+  "Name": "NewRegex",
   "Description": "/\\[\\s*\"|\"\\s*\\]/g",
   "IsDebug": false,
   "ActionList": {
@@ -64,8 +64,8 @@
   },
   "CreatedBy": "SuperUser Account",
   "CreatedOn": "2021-03-09T13:56:15.2577347+00:00",
-  "LastModifiedBy": "SuperUser Account",
-  "LastModifiedOn": "2021-03-09T14:28:44.2352146+00:00",
+  "LastModifiedBy": "Andrei Nemes",
+  "LastModifiedOn": "2021-03-11T14:46:29.3013021+00:00",
   "InputFields": [
     {
       "Required": false,

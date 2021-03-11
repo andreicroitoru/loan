@@ -1,0 +1,23 @@
+{
+  "Name": "Test",
+  "HttpMethod": "GET",
+  "IsEnabled": true,
+  "OrderIndex": 0,
+  "CrossDomainPolicy": "Public",
+  "Inputs": [],
+  "Actions": [
+    {
+      "ActionType": "RawResponse",
+      "OrderIndex": 0,
+      "Parameters": {
+        "Content": "{\n    \"status\": \"ok\",\n    \"http code\": 200,\n    \"message\": \"found\",\n    \"response\": [{\n        \"FNAME\": \"Angela\",\n        \"LNAME\": \"Jones\",\n        \"NATIONALITY\": \"New Zealand\",\n        \"ADDRESS\": [\"Australia, Melbourne, Victoria\"],\n        \"RISK_TYPE\": \"PEP\",\n        \"ALIASES\": [],\n        \"IDS\": [],\n        \"DOB\": [],\n        \"POB\": [],\n        \"POSITIONS\": \"\",\n        \"RISK_LEVEL\": \"Medium\",\n        \"SPOUSE\": [],\n        \"CHILDREN\": [\"-\"],\n        \"REMARKS\": \" [REPORTS] Apr 2013 - no further information reported.\",\n        \"SANCTIONS\": [],\n        \"OTHERRELATION\": [\"Shane Geoffrey Jones (pep) (brother)Peter Jones (father)Ruth Jones (mother)Ngareta Jones (sister-in-law)Keryn Jones (niece)Taimania Jones (niece)\"]\n    }, {\n        \"FNAME\": \"Angela\",\n        \"LNAME\": \"Jones\",\n        \"NATIONALITY\": \"United States\",\n        \"ADDRESS\": [\"United States, St. Louis, Missouri\"],\n        \"RISK_TYPE\": \"Crime Other\",\n        \"ALIASES\": [],\n        \"IDS\": [],\n        \"DOB\": [],\n        \"POB\": [],\n        \"POSITIONS\": \"\",\n        \"RISK_LEVEL\": \"High\",\n        \"SPOUSE\": [],\n        \"CHILDREN\": [\"-\"],\n        \"REMARKS\": \" To be determined. [REPORTS] Feb 2010 - charged with making false entries in union records. Apr 2010 - sentenced to 100 hours of community service and 1 year probation.\",\n        \"SANCTIONS\": [],\n        \"OTHERRELATION\": \"\"\n    }, {\n        \"FNAME\": \"Angela\",\n        \"LNAME\": \"Jones\",\n        \"NATIONALITY\": \"United States\",\n        \"ADDRESS\": [],\n        \"RISK_TYPE\": \"PEP\",\n        \"ALIASES\": [],\n        \"IDS\": [],\n        \"DOB\": [],\n        \"POB\": [],\n        \"POSITIONS\": \"Wife of Brenden Harding Jones, Member of the North Carolina House of Representatives.\",\n        \"RISK_LEVEL\": \"Medium\",\n        \"SPOUSE\": [\"Brenden Harding Jones (husband)\"],\n        \"CHILDREN\": [\"Ella Jones (daughter)Savannah-grace Jones (daughter)\"],\n        \"REMARKS\": \"\",\n        \"SANCTIONS\": [],\n        \"OTHERRELATION\": \"\"\n    }]\n}",
+        "HttpCode": "",
+        "Headers": ""
+      },
+      "IsEnabled": true,
+      "ExecutionType": "OnExecute",
+      "Metadata": {}
+    }
+  ],
+  "OnErrorActions": []
+}

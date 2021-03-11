@@ -1,0 +1,21 @@
+{
+  "id": 2,
+  "namespace": {
+    "id": 2,
+    "portalId": 0,
+    "name": "LoanApp"
+  },
+  "name": "AppInfo",
+  "description": "",
+  "parser": "<parser><type>string</type><replace>false</replace><decodeHtml>false</decodeHtml></parser>",
+  "defaultValue": "",
+  "cacheTime": 0,
+  "cacheLayer": "Global",
+  "src": {
+    "sql": "SELECT app.*, CAST(app.Amount AS numeric(10,2)) AS ConvertedAmount, apl.FirstName, apl.LastName\nFROM app.Application AS app\nINNER JOIN app.Applicant AS apl ON apl.Id = app.Applicant\nWHERE app.Id = '[tknparams:Id]'",
+    "defaultColumn": "ApplicationName",
+    "columns": "Applicant\nAmount\nLength\nApplicationName\nStatus\nFileApplication\nCreatedDate\nInstallmentRate\nConvertedAmount\nFirstName\nLastName",
+    "connectionString": "",
+    "type": "db"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": 8,
+  "namespace": {
+    "id": 2,
+    "portalId": 0,
+    "name": "LoanApp"
+  },
+  "name": "PaymentBreakdown",
+  "description": "",
+  "parser": "<parser><type>string</type><replace>false</replace><decodeHtml>false</decodeHtml></parser>",
+  "defaultValue": "",
+  "cacheTime": 0,
+  "cacheLayer": "Global",
+  "src": {
+    "sql": "declare @json nvarchar(max) = (\r\nSelect Cast((100*Amount/(Amount+(0.05*Amount/12*Length))) as decimal(10,2)) as Principal,Cast((100*(0.05*Amount/12*Length)/(Amount+(0.05*Amount/12*Length))) as decimal(10,2)) as Interest from app.Application\r\nwhere id = '[TknParams:id]'\r\nfor json path\r\n)\r\nselect @json as json\r\n",
+    "defaultColumn": "json",
+    "columns": "json",
+    "connectionString": "",
+    "type": "db"
+  }
+}

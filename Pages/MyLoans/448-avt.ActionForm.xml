@@ -1,0 +1,338 @@
+<module type="ActionForm" version="05.12.10.00">
+    <contentKey />
+    <moduleID>448</moduleID>
+    <alignment />
+    <alltabs>false</alltabs>
+    <border />
+    <cachemethod />
+    <cachetime>0</cachetime>
+    <color />
+    <containersrc />
+    <displayprint>false</displayprint>
+    <displaysyndicate>false</displaysyndicate>
+    <displaytitle>true</displaytitle>
+    <enddate>0001-01-01T00:00:00</enddate>
+    <footer />
+    <header />
+    <iconfile />
+    <inheritviewpermissions>true</inheritviewpermissions>
+    <modulepermissions>
+        <permission>
+            <permissioncode>SYSTEM_MODULE_DEFINITION</permissioncode>
+            <permissionkey>EDIT</permissionkey>
+            <allowaccess>true</allowaccess>
+            <rolename>Administrators</rolename>
+        </permission>
+    </modulepermissions>
+    <title>Charts</title>
+    <startdate>0001-01-01T00:00:00</startdate>
+    <uniqueId>077adf54-896b-4c39-b0b9-4cc2924d1336</uniqueId>
+    <visibility>Maximized</visibility>
+    <cultureCode />
+    <modulesettings />
+    <tabmodulesettings />
+    <definition>Action Form</definition>
+    <moduledefinition>avt.Action Form</moduledefinition>
+    <content type="ActionForm" version="05.12.10.00"><![CDATA[&lt;ActionForm&gt;
+  &lt;Fields&gt;
+    &lt;Field&gt;
+      &lt;Id&gt;&lt;![CDATA[129]]&gt;&lt;/Id&gt;
+      &lt;Title&gt;&lt;![CDATA[Loan Detail View]]&gt;&lt;/Title&gt;
+      &lt;ShortDesc&gt;&lt;![CDATA[]]&gt;&lt;/ShortDesc&gt;
+      &lt;CustomAttributesJson&gt;&lt;![CDATA[[]]]&gt;&lt;/CustomAttributesJson&gt;
+      &lt;IsEnabled&gt;True&lt;/IsEnabled&gt;
+      &lt;OverrideName /&gt;
+      &lt;Name&gt;LoanDetailView&lt;/Name&gt;
+      &lt;HelpText&gt;&lt;![CDATA[]]&gt;&lt;/HelpText&gt;
+      &lt;ShowCondition&gt;&lt;![CDATA[]]&gt;&lt;/ShowCondition&gt;
+      &lt;ValidationCondition&gt;&lt;![CDATA[]]&gt;&lt;/ValidationCondition&gt;
+      &lt;CanValidate&gt;&lt;![CDATA[True]]&gt;&lt;/CanValidate&gt;
+      &lt;BindShow&gt;&lt;![CDATA[]]&gt;&lt;/BindShow&gt;
+      &lt;BindEnable&gt;&lt;![CDATA[]]&gt;&lt;/BindEnable&gt;
+      &lt;BindPreserveLayout&gt;&lt;![CDATA[False]]&gt;&lt;/BindPreserveLayout&gt;
+      &lt;BindValue&gt;&lt;![CDATA[]]&gt;&lt;/BindValue&gt;
+      &lt;BindOnChange&gt;&lt;![CDATA[]]&gt;&lt;/BindOnChange&gt;
+      &lt;InputType&gt;static-text&lt;/InputType&gt;
+      &lt;InputData&gt;{&quot;Value&quot;:&quot;\u003ch4\u003e\n  Loan Amortization Graph\n\u003c/h4\u003e\n\u003ccanvas id=\&quot;line-rating2\&quot;\u003e\u003c/canvas\u003e\n\u003cscript\u003e\n  var data =  [LoanApp:LoanGraph(id=\&quot;[Helper:GetAppID(User=[User:UserID])]\&quot;)];\n     var ctx = document.getElementById(\&quot;line-rating2\&quot;).getContext(\u00272d\u0027);\n  window.rating2={\n      type: \u0027line\u0027,\n      data: {\n        labels: [],\n        datasets: [{\n          label: \u0027Payment\u0027,\n          data: [],\n          fill: false,\n          backgroundColor: \u0027#4285f4\u0027,\n          borderColor: \u0027#4285f4\u0027,\n          borderWidth: 2\n        },{\n          label: \u0027Balance\u0027,\n          data: [],\n          fill: false,\n          backgroundColor: \u0027#397D02\u0027,\n          borderColor: \u0027#397D02\u0027,\n          borderWidth: 2\n        },{\n            label: \u0027Interest\u0027,\n            data : [],\n            fill: false,\n            backgroundColor:\u0027#db4437\u0027,\n            borderColor:\u0027#db4437\u0027,\n            borderWidth : 2\n        }]\n      },\n        options: {\n          responsive: true,\n          tooltips: {\n            mode: \u0027index\u0027,\n            intersect: false,\n          },\n          hover: {\n            mode: \u0027nearest\u0027,\n            intersect: true\n          },\n          scales: {\n            xAxes: [{\n              display: true,\n              scaleLabel: {\n                display: true,\n                labelString: \u0027Period\u0027\n              }\n            }],\n            yAxes: [{\n              display: true,\n              scaleLabel: {\n                display: true,\n                labelString: \u0027Amount ($)\u0027\n              },\n              ticks: {\n                beginAtZero: true\n              },\n            }]\n          }\n        }\n    };\n  window.rating2.data.datasets[0].data = $.map(data, function(element,index) {return element.amountpaid});\n  window.rating2.data.datasets[1].data = $.map(data, function(element,index) {return element.amountleft});\n  window.rating2.data.datasets[2].data = $.map(data, function(element,index) {return element.installmentrate});\n  window.rating2.data.labels = $.map(data, function(element,index) {return element.M + \u0027/\u0027 + element.Y});\n  \n    window.rating2 = new Chart(ctx, window.rating2);\n\u003c/script\u003e&quot;,&quot;Align&quot;:{&quot;Expression&quot;:&quot;&quot;,&quot;Value&quot;:&quot;left&quot;,&quot;IsExpression&quot;:false,&quot;Parameters&quot;:{}},&quot;SaveToReport&quot;:false}&lt;/InputData&gt;
+      &lt;Align&gt;
+        &lt;Expression /&gt;
+        &lt;Value&gt;left&lt;/Value&gt;
+        &lt;IsExpression&gt;False&lt;/IsExpression&gt;
+        &lt;Parameters&gt;System.Collections.Generic.Dictionary`2[System.String,System.Object]&lt;/Parameters&gt;
+      &lt;/Align&gt;
+      &lt;SaveToReport&gt;False&lt;/SaveToReport&gt;
+      &lt;Value&gt;&lt;![CDATA[&lt;h4&gt;
+  Loan Amortization Graph
+&lt;/h4&gt;
+&lt;canvas id=&quot;line-rating2&quot;&gt;&lt;/canvas&gt;
+&lt;script&gt;
+  var data =  [LoanApp:LoanGraph(id=&quot;[Helper:GetAppID(User=[User:UserID])]&quot;)];
+     var ctx = document.getElementById(&quot;line-rating2&quot;).getContext(&#39;2d&#39;);
+  window.rating2={
+      type: &#39;line&#39;,
+      data: {
+        labels: [],
+        datasets: [{
+          label: &#39;Payment&#39;,
+          data: [],
+          fill: false,
+          backgroundColor: &#39;#4285f4&#39;,
+          borderColor: &#39;#4285f4&#39;,
+          borderWidth: 2
+        },{
+          label: &#39;Balance&#39;,
+          data: [],
+          fill: false,
+          backgroundColor: &#39;#397D02&#39;,
+          borderColor: &#39;#397D02&#39;,
+          borderWidth: 2
+        },{
+            label: &#39;Interest&#39;,
+            data : [],
+            fill: false,
+            backgroundColor:&#39;#db4437&#39;,
+            borderColor:&#39;#db4437&#39;,
+            borderWidth : 2
+        }]
+      },
+        options: {
+          responsive: true,
+          tooltips: {
+            mode: &#39;index&#39;,
+            intersect: false,
+          },
+          hover: {
+            mode: &#39;nearest&#39;,
+            intersect: true
+          },
+          scales: {
+            xAxes: [{
+              display: true,
+              scaleLabel: {
+                display: true,
+                labelString: &#39;Period&#39;
+              }
+            }],
+            yAxes: [{
+              display: true,
+              scaleLabel: {
+                display: true,
+                labelString: &#39;Amount ($)&#39;
+              },
+              ticks: {
+                beginAtZero: true
+              },
+            }]
+          }
+        }
+    };
+  window.rating2.data.datasets[0].data = $.map(data, function(element,index) {return element.amountpaid});
+  window.rating2.data.datasets[1].data = $.map(data, function(element,index) {return element.amountleft});
+  window.rating2.data.datasets[2].data = $.map(data, function(element,index) {return element.installmentrate});
+  window.rating2.data.labels = $.map(data, function(element,index) {return element.M + &#39;/&#39; + element.Y});
+  
+    window.rating2 = new Chart(ctx, window.rating2);
+&lt;/script&gt;]]&gt;&lt;/Value&gt;
+      &lt;IsRequired&gt;False&lt;/IsRequired&gt;
+      &lt;IsActive&gt;True&lt;/IsActive&gt;
+      &lt;EnableCondition /&gt;
+      &lt;CssClass&gt;&lt;![CDATA[]]&gt;&lt;/CssClass&gt;
+      &lt;FirstCssClass&gt;&lt;![CDATA[]]&gt;&lt;/FirstCssClass&gt;
+      &lt;CssStyles&gt;&lt;![CDATA[]]&gt;&lt;/CssStyles&gt;
+      &lt;LabelCssClass&gt;&lt;![CDATA[]]&gt;&lt;/LabelCssClass&gt;
+      &lt;LabelCssStyles&gt;&lt;![CDATA[]]&gt;&lt;/LabelCssStyles&gt;
+      &lt;CustomValidator1 /&gt;
+      &lt;CustomValidator2 /&gt;
+      &lt;ValidationGroup /&gt;
+      &lt;GroupValidator /&gt;
+      &lt;DisableAutocomplete&gt;False&lt;/DisableAutocomplete&gt;
+      &lt;ViewOrder&gt;1&lt;/ViewOrder&gt;
+      &lt;RowIndex&gt;0&lt;/RowIndex&gt;
+      &lt;ColSpan&gt;5&lt;/ColSpan&gt;
+      &lt;ColOffset&gt;1&lt;/ColOffset&gt;
+    &lt;/Field&gt;
+    &lt;Field&gt;
+      &lt;Id&gt;&lt;![CDATA[132]]&gt;&lt;/Id&gt;
+      &lt;Title&gt;&lt;![CDATA[Payment Breakdown]]&gt;&lt;/Title&gt;
+      &lt;ShortDesc&gt;&lt;![CDATA[]]&gt;&lt;/ShortDesc&gt;
+      &lt;CustomAttributesJson&gt;&lt;![CDATA[[]]]&gt;&lt;/CustomAttributesJson&gt;
+      &lt;IsEnabled&gt;True&lt;/IsEnabled&gt;
+      &lt;OverrideName /&gt;
+      &lt;Name&gt;PaymentBreakdown&lt;/Name&gt;
+      &lt;HelpText&gt;&lt;![CDATA[]]&gt;&lt;/HelpText&gt;
+      &lt;ShowCondition&gt;&lt;![CDATA[]]&gt;&lt;/ShowCondition&gt;
+      &lt;ValidationCondition&gt;&lt;![CDATA[]]&gt;&lt;/ValidationCondition&gt;
+      &lt;CanValidate&gt;&lt;![CDATA[True]]&gt;&lt;/CanValidate&gt;
+      &lt;BindShow&gt;&lt;![CDATA[]]&gt;&lt;/BindShow&gt;
+      &lt;BindEnable&gt;&lt;![CDATA[]]&gt;&lt;/BindEnable&gt;
+      &lt;BindPreserveLayout&gt;&lt;![CDATA[False]]&gt;&lt;/BindPreserveLayout&gt;
+      &lt;BindValue&gt;&lt;![CDATA[]]&gt;&lt;/BindValue&gt;
+      &lt;BindOnChange&gt;&lt;![CDATA[]]&gt;&lt;/BindOnChange&gt;
+      &lt;InputType&gt;static-text&lt;/InputType&gt;
+      &lt;InputData&gt;{&quot;Value&quot;:&quot;\u003ccanvas id=\&quot;canvasTotal\&quot;\u003e\u003c/canvas\u003e\n\u003cscript\u003e\n  \t\tconst formatter = new Intl.NumberFormat(\u0027en-US\u0027, {\n          percentage: \u0027%\u0027\n        })\n  \n\t\tvar data = [LoanApp:PaymentBreakdown(id=\&quot;[Helper:GetAppID(User=[User:UserID])]\&quot;)];\n\t\tvar Total = Object.values(data[0]).reduce((accumulator,currentValue) =\u003e accumulator + currentValue).toFixed(2);\n  \n\t\tvar config = {\n\t\t\ttype: \u0027pie\u0027,\n\t\t\tdata: {\n\t\t\t\tdatasets: [{\n\t\t\t\t\tdata: [\n\t\t\t\t\t\t],\n\t\t\t\t\tbackgroundColor: [\n\t\t\t\t\t\t\u0027#2f7ed8\u0027,\n\t\t\t\t\t\t\u0027#0d233a\u0027\n\t\t\t\t\t],\n\t\t\t\t\tlabel: \u0027Total\u0027\n\t\t\t\t}],\n\t\t\t\tlabels: [\u0027Principal\u0027, \u0027Interest\u0027]\n\t\t\t},\n\t\t\toptions: {\n\t\t\t\tresponsive: true,\n\t\t\t\tlegend: {\n\t\t\t\t\tposition: \u0027top\u0027,\n\t\t\t\t},\n\t\t\t\ttitle: {\n\t\t\t\t\tdisplay: true,\n\t\t\t\t\ttext: \u0027Payment Breakdown(%)\u0027\n\t\t\t\t},\n\t\t\t\tanimation: {\n\t\t\t\t\tanimateScale: true,\n\t\t\t\t\tanimateRotate: true\n\t\t\t\t},\n              \ttooltips: {\n                  callbacks: {\n                    label: function(tooltipItems, data){\n                      return data.labels[tooltipItems.index] + \u0027: \u0027 + formatter.format(data.datasets[tooltipItems.datasetIndex].data[tooltipItems.index]);\n                    }\n                  }\n                },\n          \t\telements: {\n                  center: {\n                    text: \u0027Total: \u0027+ formatter.format(Total),\n                    color: \u0027#000000\u0027, // Default is #000000\n                    fontStyle: \u0027Arial\u0027, // Default is Arial\n                    sidePadding: 20, // Default is 20 (as a percentage)\n                    minFontSize: 10, // Default is 20 (in px), set to false and text will not wrap.\n                    lineHeight: 25 // Default is 25 (in px), used for when text wraps\n      \t\t\t\t}\n          \t\t}\n        \t}\n\t\t};\n\n\t\tconfig.data.datasets[0].data = Object.values(data[0]);\n\t\tvar ctx = document.getElementById(\u0027canvasTotal\u0027).getContext(\u00272d\u0027);\n\t\twindow.myDoughnut = new Chart(ctx, config);\n\u003c/script\u003e&quot;,&quot;Align&quot;:{&quot;Expression&quot;:&quot;&quot;,&quot;Value&quot;:&quot;left&quot;,&quot;IsExpression&quot;:false,&quot;Parameters&quot;:{}},&quot;SaveToReport&quot;:false}&lt;/InputData&gt;
+      &lt;Align&gt;
+        &lt;Expression /&gt;
+        &lt;Value&gt;left&lt;/Value&gt;
+        &lt;IsExpression&gt;False&lt;/IsExpression&gt;
+        &lt;Parameters&gt;System.Collections.Generic.Dictionary`2[System.String,System.Object]&lt;/Parameters&gt;
+      &lt;/Align&gt;
+      &lt;SaveToReport&gt;False&lt;/SaveToReport&gt;
+      &lt;Value&gt;&lt;![CDATA[&lt;canvas id=&quot;canvasTotal&quot;&gt;&lt;/canvas&gt;
+&lt;script&gt;
+  		const formatter = new Intl.NumberFormat(&#39;en-US&#39;, {
+          percentage: &#39;%&#39;
+        })
+  
+		var data = [LoanApp:PaymentBreakdown(id=&quot;[Helper:GetAppID(User=[User:UserID])]&quot;)];
+		var Total = Object.values(data[0]).reduce((accumulator,currentValue) =&gt; accumulator + currentValue).toFixed(2);
+  
+		var config = {
+			type: &#39;pie&#39;,
+			data: {
+				datasets: [{
+					data: [
+						],
+					backgroundColor: [
+						&#39;#2f7ed8&#39;,
+						&#39;#0d233a&#39;
+					],
+					label: &#39;Total&#39;
+				}],
+				labels: [&#39;Principal&#39;, &#39;Interest&#39;]
+			},
+			options: {
+				responsive: true,
+				legend: {
+					position: &#39;top&#39;,
+				},
+				title: {
+					display: true,
+					text: &#39;Payment Breakdown(%)&#39;
+				},
+				animation: {
+					animateScale: true,
+					animateRotate: true
+				},
+              	tooltips: {
+                  callbacks: {
+                    label: function(tooltipItems, data){
+                      return data.labels[tooltipItems.index] + &#39;: &#39; + formatter.format(data.datasets[tooltipItems.datasetIndex].data[tooltipItems.index]);
+                    }
+                  }
+                },
+          		elements: {
+                  center: {
+                    text: &#39;Total: &#39;+ formatter.format(Total),
+                    color: &#39;#000000&#39;, // Default is #000000
+                    fontStyle: &#39;Arial&#39;, // Default is Arial
+                    sidePadding: 20, // Default is 20 (as a percentage)
+                    minFontSize: 10, // Default is 20 (in px), set to false and text will not wrap.
+                    lineHeight: 25 // Default is 25 (in px), used for when text wraps
+      				}
+          		}
+        	}
+		};
+
+		config.data.datasets[0].data = Object.values(data[0]);
+		var ctx = document.getElementById(&#39;canvasTotal&#39;).getContext(&#39;2d&#39;);
+		window.myDoughnut = new Chart(ctx, config);
+&lt;/script&gt;]]&gt;&lt;/Value&gt;
+      &lt;IsRequired&gt;False&lt;/IsRequired&gt;
+      &lt;IsActive&gt;True&lt;/IsActive&gt;
+      &lt;EnableCondition /&gt;
+      &lt;CssClass&gt;&lt;![CDATA[]]&gt;&lt;/CssClass&gt;
+      &lt;FirstCssClass&gt;&lt;![CDATA[]]&gt;&lt;/FirstCssClass&gt;
+      &lt;CssStyles&gt;&lt;![CDATA[]]&gt;&lt;/CssStyles&gt;
+      &lt;LabelCssClass&gt;&lt;![CDATA[]]&gt;&lt;/LabelCssClass&gt;
+      &lt;LabelCssStyles&gt;&lt;![CDATA[]]&gt;&lt;/LabelCssStyles&gt;
+      &lt;CustomValidator1 /&gt;
+      &lt;CustomValidator2 /&gt;
+      &lt;ValidationGroup /&gt;
+      &lt;GroupValidator /&gt;
+      &lt;DisableAutocomplete&gt;False&lt;/DisableAutocomplete&gt;
+      &lt;ViewOrder&gt;7&lt;/ViewOrder&gt;
+      &lt;RowIndex&gt;0&lt;/RowIndex&gt;
+      &lt;ColSpan&gt;5&lt;/ColSpan&gt;
+      &lt;ColOffset&gt;0&lt;/ColOffset&gt;
+    &lt;/Field&gt;
+  &lt;/Fields&gt;
+  &lt;Settings&gt;
+    &lt;Title&gt;Charts&lt;/Title&gt;
+    &lt;CssName&gt;charts&lt;/CssName&gt;
+    &lt;Version&gt;5.12.0&lt;/Version&gt;
+    &lt;Build&gt;5.12.10&lt;/Build&gt;
+    &lt;CultureCode&gt;en&lt;/CultureCode&gt;
+    &lt;RenderContext&gt;Form&lt;/RenderContext&gt;
+    &lt;FrontEndTemplate&gt;&amp;lt;div&amp;gt;&amp;lt;span&amp;gt;&amp;lt;a href=&quot;[FormUrl]&quot;&amp;gt;Click here to change.&amp;lt;/a&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&lt;/FrontEndTemplate&gt;
+    &lt;HasCustomLayout&gt;False&lt;/HasCustomLayout&gt;
+    &lt;ShowLoading&gt;False&lt;/ShowLoading&gt;
+    &lt;LoadingBarsColor&gt;#00c0ef&lt;/LoadingBarsColor&gt;
+    &lt;LoadingBackgroundColor&gt;#fff&lt;/LoadingBackgroundColor&gt;
+    &lt;LoadingText /&gt;
+    &lt;TabsProLoading&gt;False&lt;/TabsProLoading&gt;
+    &lt;LayoutHtml&gt;&lt;![CDATA[&amp;lt;div style=&amp;quot;width: 40%; float: left; margin: 0px 20px 0px 0px;&amp;quot;&amp;gt;[Fields:NewField]&amp;lt;/div&amp;gt;
+&amp;lt;div style=&amp;quot;width: 40%; float: left; margin: 0px 20px 0px 0px;&amp;quot;&amp;gt;[Fields:NewField]&amp;lt;/div&amp;gt;
+&amp;lt;div style=&amp;quot;clear: both;&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;]]&gt;&lt;/LayoutHtml&gt;
+    &lt;CurrentContext&gt;ExportImport&lt;/CurrentContext&gt;
+    &lt;LabelAlign&gt;right&lt;/LabelAlign&gt;
+    &lt;LabelWidth&gt;3&lt;/LabelWidth&gt;
+    &lt;FieldSpacing&gt;normal&lt;/FieldSpacing&gt;
+    &lt;OpenFormMode&gt;Always&lt;/OpenFormMode&gt;
+    &lt;ModuleId&gt;448&lt;/ModuleId&gt;
+    &lt;ModuleVersion&gt;5.12.10&lt;/ModuleVersion&gt;
+    &lt;TabId&gt;59&lt;/TabId&gt;
+    &lt;ModuleBaseUrl&gt;/DesktopModules/DnnSharp/ActionForm&lt;/ModuleBaseUrl&gt;
+    &lt;ResourceBaseUrl&gt;/DesktopModules/DnnSharp/ActionForm/static&lt;/ResourceBaseUrl&gt;
+    &lt;FormTemplate&gt;bootstrap&lt;/FormTemplate&gt;
+    &lt;FormTemplateFolder&gt;/DesktopModules/DnnSharp/ActionForm/templates/Form/bootstrap&lt;/FormTemplateFolder&gt;
+    &lt;ModuleId&gt;448&lt;/ModuleId&gt;
+    &lt;IsDebug&gt;False&lt;/IsDebug&gt;
+    &lt;EnableReports&gt;False&lt;/EnableReports&gt;
+    &lt;ClientSideValidation&gt;True&lt;/ClientSideValidation&gt;
+    &lt;RequiredFieldAllowsWhiteSpace&gt;False&lt;/RequiredFieldAllowsWhiteSpace&gt;
+    &lt;OnFocusoutValidation&gt;False&lt;/OnFocusoutValidation&gt;
+    &lt;ShowTooltips&gt;False&lt;/ShowTooltips&gt;
+    &lt;ShowTooltipTitle&gt;True&lt;/ShowTooltipTitle&gt;
+    &lt;ShowFormCondition /&gt;
+    &lt;InitJs&gt;&lt;![CDATA[Chart.plugins.register({
+	afterDraw: function(chart) {
+  	if (chart.data.datasets[0].data.length === 0) {
+    	// No data is present
+      var ctx = chart.chart.ctx;
+      var width = chart.chart.width;
+      var height = chart.chart.height;
+      chart.clear();
+      ctx.save();
+      ctx.textAlign = &#39;center&#39;;
+      ctx.textBaseline = &#39;middle&#39;;
+      ctx.font = &quot;16px normal &#39;Helvetica Nueue&#39;&quot;;
+      ctx.fillText(&#39;No data to display&#39;, width / 2, height / 2);
+      ctx.restore();
+    }
+  }
+});]]&gt;&lt;/InitJs&gt;
+    &lt;PopupWidth&gt;400&lt;/PopupWidth&gt;
+    &lt;WidthCoordinate&gt;px&lt;/WidthCoordinate&gt;
+    &lt;PopupHeight&gt;300&lt;/PopupHeight&gt;
+    &lt;jQueryTheme&gt;sunny&lt;/jQueryTheme&gt;
+    &lt;SubmitHiddenFields&gt;False&lt;/SubmitHiddenFields&gt;
+    &lt;IncludeBootstrap&gt;True&lt;/IncludeBootstrap&gt;
+    &lt;IncludeFontAwesome&gt;True&lt;/IncludeFontAwesome&gt;
+    &lt;FloatingLabels&gt;False&lt;/FloatingLabels&gt;
+    &lt;EnableEmbed&gt;False&lt;/EnableEmbed&gt;
+    &lt;AngularnoConflict&gt;True&lt;/AngularnoConflict&gt;
+    &lt;Background /&gt;
+    &lt;TextColor /&gt;
+    &lt;Padding&gt;0&lt;/Padding&gt;
+    &lt;DateFormat&gt;m/d/yy&lt;/DateFormat&gt;
+    &lt;BaseId&gt;dnn448&lt;/BaseId&gt;
+    &lt;PopupName /&gt;
+    &lt;LeftSidebarHtml /&gt;
+    &lt;RightSidebarHtml /&gt;
+    &lt;RootClasses /&gt;
+    &lt;LocalizedStringsUrl&gt;/DesktopModules/DnnSharp/ActionForm/AdminApi.ashx?method=GetLocalization&amp;amp;locale=en-US&amp;amp;section=FrontEnd&lt;/LocalizedStringsUrl&gt;
+    &lt;PortalHomeUrl&gt;/Portals/0/&lt;/PortalHomeUrl&gt;
+  &lt;/Settings&gt;
+  &lt;Actions xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; /&gt;
+&lt;/ActionForm&gt;]]></content>
+</module>

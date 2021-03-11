@@ -170,7 +170,7 @@
     &lt;/FieldInfo&gt;
     &lt;FieldInfo&gt;
       &lt;IsDeleted&gt;false&lt;/IsDeleted&gt;
-      &lt;Title&gt;Application Name&lt;/Title&gt;
+      &lt;Title&gt;Application&lt;/Title&gt;
       &lt;RefName&gt;ApplicationName&lt;/RefName&gt;
       &lt;IsEnabled&gt;true&lt;/IsEnabled&gt;
       &lt;IsInitiallyVisible&gt;true&lt;/IsInitiallyVisible&gt;

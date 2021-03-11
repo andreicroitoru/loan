@@ -1,0 +1,86 @@
+{
+  "ApplicationName": "Loan Application Program",
+  "GitRepositoryUrl": "https://github.com/andreicroitoru/loan.git",
+  "EnableMobileLogin": false,
+  "ResetPasswordTabId": 33,
+  "ResetPasswordTabName": "reset-password",
+  "ResetPassowrdTabPath": "//reset-password",
+  "Roles": {
+    "BuiltInRoles": [
+      {
+        "RoleId": 5,
+        "PortalId": 0,
+        "Name": "Admins",
+        "ReadOnly": true,
+        "Description": "Can do everything that Managers can. Also, an Admin can create other Admin, Developer or Manager accounts. This role has no development access, but can administer settings and apply updates to the system.",
+        "Status": "Approved"
+      },
+      {
+        "RoleId": 6,
+        "PortalId": 0,
+        "Name": "Citizen Developers",
+        "ReadOnly": true,
+        "Description": "Creates the application screens and the business logic/flows associated with them",
+        "Status": "Approved"
+      },
+      {
+        "RoleId": 13,
+        "PortalId": 0,
+        "Name": "Low-Code Engineer",
+        "ReadOnly": true,
+        "Description": "Can do everything a Citizen Developer can in addition to having access to more advanced coding actions and application settings.",
+        "Status": "Approved"
+      },
+      {
+        "RoleId": 7,
+        "PortalId": 0,
+        "Name": "Managers",
+        "ReadOnly": true,
+        "Description": "Has access to all data stored in the system. Can manage all users except Admins and Citizen Developers",
+        "Status": "Approved"
+      }
+    ],
+    "AppRoles": [
+      {
+        "RoleId": 9,
+        "PortalId": 0,
+        "Name": "Client",
+        "ReadOnly": false,
+        "Description": "Applicant",
+        "Status": "Approved"
+      },
+      {
+        "RoleId": 10,
+        "PortalId": 0,
+        "Name": "Functionary",
+        "ReadOnly": false,
+        "Description": "Can pre-approve Applicants",
+        "Status": "Approved"
+      },
+      {
+        "RoleId": 11,
+        "PortalId": 0,
+        "Name": "Manager",
+        "ReadOnly": false,
+        "Description": "Can Approve the final Applications",
+        "Status": "Approved"
+      },
+      {
+        "RoleId": 12,
+        "PortalId": 0,
+        "Name": "Restricted",
+        "ReadOnly": false,
+        "Description": "Restricted Account that cannot Login",
+        "Status": "Approved"
+      },
+      {
+        "RoleId": 8,
+        "PortalId": 0,
+        "Name": "Users",
+        "ReadOnly": false,
+        "Description": "The normal users of this App",
+        "Status": "Approved"
+      }
+    ]
+  }
+}

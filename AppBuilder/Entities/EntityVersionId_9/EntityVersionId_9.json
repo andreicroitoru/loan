@@ -1,0 +1,13 @@
+{
+  "DisplayInMenu": true,
+  "ParentPageId": -1,
+  "RecordNamePropertyId": 22,
+  "Id": 9,
+  "VersionId": 9,
+  "EntityTabId": 52,
+  "Name": "Risk",
+  "PluralName": "Risks",
+  "Icon": "ban",
+  "Type": "UserCreated",
+  "EnableIndexing": false
+}

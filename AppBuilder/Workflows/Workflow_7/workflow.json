@@ -15,6 +15,7 @@
           {
             "Id": 290,
             "Name": "From",
+            "Value": "hostdnnadmin@SelfReg_CA2F08B79B.apps.plantanapp.com",
             "IsExpression": false,
             "ActionId": 46,
             "OrderIndex": 0
@@ -114,7 +115,7 @@
   "CreatedBy": "Andrei Croitoru",
   "CreatedOn": "2021-03-11T15:01:54.9719577+00:00",
   "LastModifiedBy": "Andrei Croitoru",
-  "LastModifiedOn": "2021-03-11T15:01:54.9719577+00:00",
+  "LastModifiedOn": "2021-03-11T15:03:47.8116491+00:00",
   "InputFields": [],
   "OutputFields": []
 }

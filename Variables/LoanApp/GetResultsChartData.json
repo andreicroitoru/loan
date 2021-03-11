@@ -1,0 +1,21 @@
+{
+  "id": 5,
+  "namespace": {
+    "id": 2,
+    "portalId": 0,
+    "name": "LoanApp"
+  },
+  "name": "GetResultsChartData",
+  "description": "",
+  "parser": "<parser><type>string</type><replace>false</replace><decodeHtml>false</decodeHtml></parser>",
+  "defaultValue": "",
+  "cacheTime": 0,
+  "cacheLayer": "Global",
+  "src": {
+    "sql": "SELECT CAST(Amount AS numeric(10,2)) AS ConvertedAmount, \nLength, CAST(InstallmentRate * Length AS numeric(10,2)) AS TotalToPay, CAST((InstallmentRate * Length) - Amount AS numeric(10,2)) AS InstallmentRate\nFROM app.Application\nWHERE Id = '[TknParams:AppID]'",
+    "defaultColumn": "TotalToPay",
+    "columns": "Id",
+    "connectionString": "",
+    "type": "db"
+  }
+}

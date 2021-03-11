@@ -1,0 +1,127 @@
+{
+  "Id": 3,
+  "Name": "Salary/Installment",
+  "Description": "Calculates if the applicant is elegible to continue",
+  "IsDebug": false,
+  "ActionList": {
+    "Id": 5,
+    "EventName": "Event",
+    "Actions": [
+      {
+        "Id": 3,
+        "ActionType": "RunSql",
+        "OrderIndex": 0,
+        "ActionParameters": [
+          {
+            "Id": 17,
+            "Name": "ConnectionString",
+            "IsExpression": false,
+            "ActionId": 3,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 18,
+            "Name": "QueryTimeout",
+            "IsExpression": false,
+            "ActionId": 3,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 19,
+            "Name": "SqlQuery",
+            "Value": "--SELECT @salary/@installment AS Result\n\ndeclare @a float = @salary\ndeclare @b float = @installment\n\nSELECT @a/@b AS Result",
+            "IsExpression": false,
+            "ActionId": 3,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 20,
+            "Name": "BindTokens",
+            "Value": [
+              {
+                "value": "[Income]",
+                "$$hashKey": "object:52",
+                "name": "salary"
+              },
+              {
+                "value": "[Installment]",
+                "$$hashKey": "object:58",
+                "name": "installment"
+              }
+            ],
+            "IsExpression": false,
+            "ActionId": 3,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 21,
+            "Name": "OutputTokenName",
+            "Value": "Result",
+            "IsExpression": false,
+            "ActionId": 3,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 22,
+            "Name": "ExtractColumns",
+            "IsExpression": false,
+            "ActionId": 3,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 23,
+            "Name": "OnError",
+            "Value": {
+              "Id": 6,
+              "EventName": "OnError",
+              "Actions": []
+            },
+            "IsExpression": false,
+            "ActionId": 3,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 24,
+            "Name": "ShowErrors",
+            "IsExpression": false,
+            "ActionId": 3,
+            "OrderIndex": 0
+          }
+        ],
+        "DiagramUID": "Activity_1cbpnxc"
+      }
+    ]
+  },
+  "CreatedBy": "SuperUser Account",
+  "CreatedOn": "2021-03-08T15:08:32.3160357+00:00",
+  "LastModifiedBy": "SuperUser Account",
+  "LastModifiedOn": "2021-03-08T15:32:33.9518333+00:00",
+  "InputFields": [
+    {
+      "Required": false,
+      "Id": 8,
+      "Name": "Income",
+      "InputType": "Decimal",
+      "WorkflowId": 3,
+      "IsDeleted": false
+    },
+    {
+      "Required": false,
+      "Id": 9,
+      "Name": "Installment",
+      "InputType": "Decimal",
+      "WorkflowId": 3,
+      "IsDeleted": false
+    }
+  ],
+  "OutputFields": [
+    {
+      "Value": "[Result]",
+      "Id": 10,
+      "Name": "Output",
+      "InputType": "Text",
+      "WorkflowId": 3,
+      "IsDeleted": false
+    }
+  ]
+}

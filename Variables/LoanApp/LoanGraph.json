@@ -1,0 +1,21 @@
+{
+  "id": 7,
+  "namespace": {
+    "id": 2,
+    "portalId": 0,
+    "name": "LoanApp"
+  },
+  "name": "LoanGraph",
+  "description": "",
+  "parser": "<parser><type>string</type><replace>false</replace><decodeHtml>false</decodeHtml></parser>",
+  "defaultValue": "",
+  "cacheTime": 0,
+  "cacheLayer": "Global",
+  "src": {
+    "sql": "DECLARE \n    @StartDate VARCHAR(MAX), \n    @EndDate VARCHAR(MAX),\n    @Amount float,\n    @duration float,\n    @amountpaid float,\n    @amountleft float,\n    @installmentrate float,\n    @id int,\n    @i int;\n\nDECLARE LoanGraph CURSOR\nFOR \n\nSELECT CONVERT(CHAR(8),CreatedDate,112) AS StartDate, CONVERT(CHAR(8), DATEADD(month, Length, CreatedDate),112) AS EndDate,Amount,Length,0 as AmountPaid,(Amount + 0.05*Amount/12*Length) as AmountLeft,InstallmentRate,Id from app.Application\n\nOPEN LoanGraph;\nSet @i = 1;\nFETCH NEXT FROM LoanGraph INTO \n    @StartDate, \n    @EndDate,\n    @Amount,\n    @duration,\n    @amountpaid,\n    @amountleft,\n    @installmentrate,\n    @id;\n\n CREATE TABLE #Loan_Graph (\n    M VARCHAR(MAX),\n    Y VARCHAR(MAX),\n    Amount decimal(10,4),\n    duration decimal(10,4),\n    amountpaid decimal(10,4),\n    amountleft decimal(10,4),\n    installmentrate decimal(10,4),\n    id int\n);\n\nWHILE @@FETCH_STATUS = 0\n    BEGIN\n\n    While @i<=@duration\n    Begin\n\nINSERT INTO #Loan_Graph (M, Y, Amount, duration,amountpaid,amountleft,installmentrate,id)\nSelect DATEPART(MONTH, DATEADD(MONTH, @i, @StartDate)) AS M, DATEPART(YEAR, DATEADD(MONTH, @i, @StartDate)) AS Y,@Amount, @duration, Cast(@amountpaid + @installmentrate*@i as decimal(10,2)),Cast(@amountleft -@installmentrate*@i as decimal(10,2)),@installmentrate,@id\nSet @i = @i+1;\nEND\nSet @i = 1;\n\n        FETCH NEXT FROM LoanGraph INTO \n            @StartDate, \n            @EndDate,\n            @Amount,\n            @duration,\n            @amountpaid,\n            @amountleft,\n            @installmentrate,\n            @id;\n    END;\n\nCLOSE LoanGraph;\n\nDEALLOCATE LoanGraph;\n\ndeclare @json nvarchar(max) = (\n\nSelect * From #Loan_Graph\nwhere id = '[TknParams:id]'\n\n    for json path \n)\nselect @json as json\n\nDROP TABLE #Loan_Graph;",
+    "defaultColumn": "json",
+    "columns": "json",
+    "connectionString": "",
+    "type": "db"
+  }
+}

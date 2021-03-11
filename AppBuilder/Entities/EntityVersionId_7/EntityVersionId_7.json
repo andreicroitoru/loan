@@ -1,0 +1,13 @@
+{
+  "DisplayInMenu": true,
+  "ParentPageId": -1,
+  "RecordNamePropertyId": 16,
+  "Id": 7,
+  "VersionId": 7,
+  "EntityTabId": 48,
+  "Name": "Status",
+  "PluralName": "Statuses",
+  "Icon": "check-circle",
+  "Type": "UserCreated",
+  "EnableIndexing": false
+}

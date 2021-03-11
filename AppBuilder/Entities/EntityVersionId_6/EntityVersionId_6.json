@@ -1,0 +1,13 @@
+{
+  "DisplayInMenu": true,
+  "ParentPageId": -1,
+  "RecordNamePropertyId": 15,
+  "Id": 6,
+  "VersionId": 6,
+  "EntityTabId": 46,
+  "Name": "Application",
+  "PluralName": "Applications",
+  "Icon": "file-alt",
+  "Type": "UserCreated",
+  "EnableIndexing": false
+}

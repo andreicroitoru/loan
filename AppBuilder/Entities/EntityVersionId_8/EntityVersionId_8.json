@@ -1,0 +1,13 @@
+{
+  "DisplayInMenu": true,
+  "ParentPageId": -1,
+  "RecordNamePropertyId": 30,
+  "Id": 8,
+  "VersionId": 8,
+  "EntityTabId": 50,
+  "Name": "Approval",
+  "PluralName": "Approvals",
+  "Icon": "user-check",
+  "Type": "UserCreated",
+  "EnableIndexing": false
+}

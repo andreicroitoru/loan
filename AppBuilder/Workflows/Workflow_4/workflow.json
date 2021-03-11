@@ -1,0 +1,1545 @@
+{
+  "Id": 4,
+  "Name": "Application Data",
+  "Description": "Checks the eligibility of the applicant",
+  "IsDebug": false,
+  "ActionList": {
+    "Id": 7,
+    "EventName": "Event",
+    "Actions": [
+      {
+        "Id": 4,
+        "ActionType": "PlantAnApp.ExecuteWorkflow.1",
+        "OrderIndex": 0,
+        "ActionParameters": [
+          {
+            "Id": 25,
+            "Name": "InputHelpText",
+            "IsExpression": false,
+            "ActionId": 4,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 26,
+            "Name": "Length",
+            "Value": "[LengthMonths]",
+            "IsExpression": false,
+            "ActionId": 4,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 27,
+            "Name": "Age",
+            "Value": "[Age]",
+            "IsExpression": false,
+            "ActionId": 4,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 28,
+            "Name": "OutputHelpText",
+            "IsExpression": false,
+            "ActionId": 4,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 29,
+            "Name": "Output",
+            "Value": "AgeLimit",
+            "IsExpression": false,
+            "ActionId": 4,
+            "OrderIndex": 0
+          }
+        ],
+        "DiagramUID": "Activity_0e310xt"
+      },
+      {
+        "Id": 5,
+        "ActionType": "PlantAnApp.ExecuteWorkflow.3",
+        "OrderIndex": 1,
+        "ActionParameters": [
+          {
+            "Id": 30,
+            "Name": "InputHelpText",
+            "IsExpression": false,
+            "ActionId": 5,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 31,
+            "Name": "Income",
+            "Value": "[Income]",
+            "IsExpression": false,
+            "ActionId": 5,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 32,
+            "Name": "Installment",
+            "Value": "[Installment]",
+            "IsExpression": false,
+            "ActionId": 5,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 33,
+            "Name": "OutputHelpText",
+            "IsExpression": false,
+            "ActionId": 5,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 34,
+            "Name": "Output",
+            "Value": "CheckInstallment",
+            "IsExpression": false,
+            "ActionId": 5,
+            "OrderIndex": 0
+          }
+        ],
+        "DiagramUID": "Activity_00dmq9t"
+      },
+      {
+        "Id": 6,
+        "Description": "",
+        "ActionErrorMessage": "",
+        "Condition": "",
+        "ActionType": "PlantAnApp.ExecuteConditionally",
+        "OrderIndex": 2,
+        "ActionParameters": [
+          {
+            "Id": 35,
+            "Name": "ConditionedActions",
+            "Value": [
+              {
+                "Condition": {
+                  "IsExpression": false,
+                  "Expression": "",
+                  "Value": "[AgeLimit] > 70 || [CheckInstallment] <= 2"
+                },
+                "Actions": {
+                  "Id": 8,
+                  "EventName": "click",
+                  "Actions": [
+                    {
+                      "Id": 7,
+                      "ActionType": "RunSql",
+                      "OrderIndex": 0,
+                      "ActionParameters": [
+                        {
+                          "Id": 37,
+                          "Name": "ConnectionString",
+                          "IsExpression": false,
+                          "ActionId": 7,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 38,
+                          "Name": "QueryTimeout",
+                          "IsExpression": false,
+                          "ActionId": 7,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 39,
+                          "Name": "SqlQuery",
+                          "Value": "SELECT 'Reject' AS Result",
+                          "IsExpression": false,
+                          "ActionId": 7,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 40,
+                          "Name": "BindTokens",
+                          "IsExpression": false,
+                          "ActionId": 7,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 41,
+                          "Name": "OutputTokenName",
+                          "Value": "Result",
+                          "IsExpression": false,
+                          "ActionId": 7,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 42,
+                          "Name": "ExtractColumns",
+                          "IsExpression": false,
+                          "ActionId": 7,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 43,
+                          "Name": "OnError",
+                          "Value": {
+                            "Id": 9,
+                            "EventName": "OnError",
+                            "Actions": []
+                          },
+                          "IsExpression": false,
+                          "ActionId": 7,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 44,
+                          "Name": "ShowErrors",
+                          "IsExpression": false,
+                          "ActionId": 7,
+                          "OrderIndex": 0
+                        }
+                      ],
+                      "DiagramUID": "Activity_00tc8p7"
+                    }
+                  ]
+                }
+              },
+              {
+                "Condition": {
+                  "IsExpression": false,
+                  "Expression": "",
+                  "Value": "[AgeLimit] <= 70 || [CheckInstallment] > 2"
+                },
+                "Actions": {
+                  "Id": 10,
+                  "EventName": "click",
+                  "Actions": [
+                    {
+                      "Id": 8,
+                      "ActionType": "PostData",
+                      "OrderIndex": 0,
+                      "ActionParameters": [
+                        {
+                          "Id": 47,
+                          "Name": "InputParameters",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 48,
+                          "Name": "URL",
+                          "Value": "https://highrisk-check3.p.rapidapi.com/information/data",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 49,
+                          "Name": "UrlTokenContext",
+                          "Value": "Url",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 50,
+                          "Name": "UseSSL",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 51,
+                          "Name": "Timeout",
+                          "Value": "500",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 52,
+                          "Name": "HttpMethod",
+                          "Value": "GET",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 53,
+                          "Name": "Data",
+                          "Value": "name=[FirstName] [LastName]",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 54,
+                          "Name": "DoNotEscapeTokens",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 55,
+                          "Name": "DisableReferer",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 56,
+                          "Name": "Headers",
+                          "Value": [
+                            {
+                              "value": "809152a304msh957f7658982b88ep13437cjsnbfaa10eecb31",
+                              "name": "x-rapidapi-key",
+                              "$$hashKey": "object:67"
+                            },
+                            {
+                              "value": "highrisk-check3.p.rapidapi.com",
+                              "name": "x-rapidapi-host",
+                              "$$hashKey": "object:68"
+                            }
+                          ],
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 57,
+                          "Name": "UseDNNProxySettings",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 58,
+                          "Name": "AddCurrentCookies",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 59,
+                          "Name": "OutputParameters",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 60,
+                          "Name": "CookieContainerToken",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 61,
+                          "Name": "OutputTokenName",
+                          "Value": "Response",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 62,
+                          "Name": "OutputHeaders",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 63,
+                          "Name": "IgnoreErrors",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 64,
+                          "Name": "Events",
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 65,
+                          "Name": "OnError",
+                          "Value": {
+                            "Id": 11,
+                            "EventName": "error",
+                            "Actions": []
+                          },
+                          "IsExpression": false,
+                          "ActionId": 8,
+                          "OrderIndex": 0
+                        }
+                      ],
+                      "DiagramUID": "Activity_19hxeod"
+                    },
+                    {
+                      "Id": 9,
+                      "ActionType": "ParseJsonIntoTokens",
+                      "OrderIndex": 1,
+                      "ActionParameters": [
+                        {
+                          "Id": 66,
+                          "Name": "JsonString",
+                          "Value": "[Response]",
+                          "IsExpression": false,
+                          "ActionId": 9,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 67,
+                          "Name": "BaseTokenName",
+                          "Value": "JSON",
+                          "IsExpression": false,
+                          "ActionId": 9,
+                          "OrderIndex": 0
+                        }
+                      ],
+                      "DiagramUID": "Activity_1jilasi"
+                    },
+                    {
+                      "Id": 10,
+                      "Condition": "[JSON:status] == \"ok\"",
+                      "ActionType": "LoadEntitiesFromJson",
+                      "OrderIndex": 2,
+                      "ActionParameters": [
+                        {
+                          "Id": 68,
+                          "Name": "JsonModel",
+                          "Value": "[JSON:response]",
+                          "IsExpression": false,
+                          "ActionId": 10,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 69,
+                          "Name": "EntityName",
+                          "Value": "JSONdata",
+                          "IsExpression": false,
+                          "ActionId": 10,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 70,
+                          "Name": "OnError",
+                          "Value": {
+                            "Id": 12,
+                            "EventName": "OnError",
+                            "Actions": []
+                          },
+                          "IsExpression": false,
+                          "ActionId": 10,
+                          "OrderIndex": 0
+                        }
+                      ],
+                      "DiagramUID": "Activity_01497c7"
+                    },
+                    {
+                      "Id": 11,
+                      "ActionType": "PlantAnApp.CreateEntity.0.Applicant",
+                      "OrderIndex": 3,
+                      "ActionParameters": [
+                        {
+                          "Id": 71,
+                          "Name": "ConnectionString",
+                          "IsExpression": false,
+                          "ActionId": 11,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 72,
+                          "Name": "FirstName",
+                          "Value": "[FirstName]",
+                          "IsExpression": false,
+                          "ActionId": 11,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 73,
+                          "Name": "LastName",
+                          "Value": "[LastName]",
+                          "IsExpression": false,
+                          "ActionId": 11,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 74,
+                          "Name": "Age",
+                          "Value": "[Age]",
+                          "IsExpression": false,
+                          "ActionId": 11,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 75,
+                          "Name": "Income",
+                          "Value": "[Income]",
+                          "IsExpression": false,
+                          "ActionId": 11,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 76,
+                          "Name": "UserID",
+                          "IsExpression": false,
+                          "ActionId": 11,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 77,
+                          "Name": "OutputToken",
+                          "Value": "ApplicantID",
+                          "IsExpression": false,
+                          "ActionId": 11,
+                          "OrderIndex": 0
+                        }
+                      ],
+                      "DiagramUID": "Activity_03045t3"
+                    },
+                    {
+                      "Id": 12,
+                      "ActionType": "PlantAnApp.CreateEntity.0.Application",
+                      "OrderIndex": 4,
+                      "ActionParameters": [
+                        {
+                          "Id": 78,
+                          "Name": "ConnectionString",
+                          "IsExpression": false,
+                          "ActionId": 12,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 79,
+                          "Name": "Applicant",
+                          "Value": "[ApplicantID]",
+                          "IsExpression": false,
+                          "ActionId": 12,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 80,
+                          "Name": "Amount",
+                          "Value": "[RequestedAmount]",
+                          "IsExpression": false,
+                          "ActionId": 12,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 81,
+                          "Name": "Length",
+                          "Value": "[Lengthmonths]",
+                          "IsExpression": false,
+                          "ActionId": 12,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 82,
+                          "Name": "ApplicationName",
+                          "Value": "[FirstName]-[LastName]-[DateTime:Now]",
+                          "IsExpression": false,
+                          "ActionId": 12,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 83,
+                          "Name": "Status",
+                          "Value": "4",
+                          "IsExpression": false,
+                          "ActionId": 12,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 84,
+                          "Name": "OutputToken",
+                          "Value": "ApplicationID",
+                          "IsExpression": false,
+                          "ActionId": 12,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 267,
+                          "Name": "FileApplication",
+                          "IsExpression": false,
+                          "ActionId": 12,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 269,
+                          "Name": "Signature",
+                          "IsExpression": false,
+                          "ActionId": 12,
+                          "OrderIndex": 0
+                        },
+                        {
+                          "Id": 270,
+                          "Name": "InstallmentRate",
+                          "Value": "[Installment]",
+                          "IsExpression": false,
+                          "ActionId": 12,
+                          "OrderIndex": 0
+                        }
+                      ],
+                      "DiagramUID": "Activity_0pvgmoe"
+                    },
+                    {
+                      "Id": 13,
+                      "Description": "",
+                      "ActionErrorMessage": "",
+                      "Condition": "",
+                      "ActionType": "PlantAnApp.ExecuteConditionally",
+                      "OrderIndex": 5,
+                      "ActionParameters": [
+                        {
+                          "Id": 85,
+                          "Name": "ConditionedActions",
+                          "Value": [
+                            {
+                              "Condition": {
+                                "IsExpression": false,
+                                "Expression": "",
+                                "Value": "([JSON:status] == \"ok\" && [RequestedAmount] >= 10000.00) || ([JSON:status] == \"ok\" && [RequestedAmount] < 10000.00)"
+                              },
+                              "Actions": {
+                                "Id": 13,
+                                "EventName": "click",
+                                "Actions": [
+                                  {
+                                    "Id": 14,
+                                    "ActionType": "PlantAnApp.CreateEntity.0.Approval",
+                                    "OrderIndex": 0,
+                                    "ActionParameters": [
+                                      {
+                                        "Id": 124,
+                                        "Name": "ConnectionString",
+                                        "IsExpression": false,
+                                        "ActionId": 14,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 125,
+                                        "Name": "GUID",
+                                        "Value": "[ApplicantID]-[ApplicationID]-[DateTime:Now]",
+                                        "IsExpression": false,
+                                        "ActionId": 14,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 126,
+                                        "Name": "Application",
+                                        "Value": "[ApplicationID]",
+                                        "IsExpression": false,
+                                        "ActionId": 14,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 127,
+                                        "Name": "Applicant",
+                                        "Value": "[ApplicantID]",
+                                        "IsExpression": false,
+                                        "ActionId": 14,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 128,
+                                        "Name": "Status",
+                                        "Value": "4",
+                                        "IsExpression": false,
+                                        "ActionId": 14,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 129,
+                                        "Name": "OutputToken",
+                                        "Value": "ApprovalID",
+                                        "IsExpression": false,
+                                        "ActionId": 14,
+                                        "OrderIndex": 0
+                                      }
+                                    ],
+                                    "DiagramUID": "Activity_0k314o0"
+                                  },
+                                  {
+                                    "Id": 37,
+                                    "ActionType": "ExecuteActionsOnEntityList",
+                                    "OrderIndex": 1,
+                                    "ActionParameters": [
+                                      {
+                                        "Id": 232,
+                                        "Name": "EntityName",
+                                        "Value": "JSONdata",
+                                        "IsExpression": false,
+                                        "ActionId": 37,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 233,
+                                        "Name": "Filters",
+                                        "IsExpression": false,
+                                        "ActionId": 37,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 234,
+                                        "Name": "ContextBehavior",
+                                        "IsExpression": false,
+                                        "ActionId": 37,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 257,
+                                        "Name": "ActionList",
+                                        "Value": {
+                                          "Id": 29,
+                                          "EventName": "click",
+                                          "Actions": [
+                                            {
+                                              "Id": 38,
+                                              "Description": "For Address",
+                                              "ActionType": "PlantAnApp.ExecuteWorkflow.2",
+                                              "OrderIndex": 0,
+                                              "ActionParameters": [
+                                                {
+                                                  "Id": 235,
+                                                  "Name": "InputHelpText",
+                                                  "IsExpression": false,
+                                                  "ActionId": 38,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 236,
+                                                  "Name": "Input",
+                                                  "Value": "[JSONdata:ADDRESS]",
+                                                  "IsExpression": false,
+                                                  "ActionId": 38,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 237,
+                                                  "Name": "Pattern",
+                                                  "IsExpression": false,
+                                                  "ActionId": 38,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 238,
+                                                  "Name": "Replace",
+                                                  "Value": "####",
+                                                  "IsExpression": false,
+                                                  "ActionId": 38,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 239,
+                                                  "Name": "OutputHelpText",
+                                                  "IsExpression": false,
+                                                  "ActionId": 38,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 240,
+                                                  "Name": "Output",
+                                                  "Value": "RegexAddress",
+                                                  "IsExpression": false,
+                                                  "ActionId": 38,
+                                                  "OrderIndex": 0
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "Id": 39,
+                                              "Description": "For Date Of Birth",
+                                              "ActionType": "PlantAnApp.ExecuteWorkflow.2",
+                                              "OrderIndex": 1,
+                                              "ActionParameters": [
+                                                {
+                                                  "Id": 241,
+                                                  "Name": "InputHelpText",
+                                                  "IsExpression": false,
+                                                  "ActionId": 39,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 242,
+                                                  "Name": "Input",
+                                                  "Value": "[JSONdata:DOB]",
+                                                  "IsExpression": false,
+                                                  "ActionId": 39,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 243,
+                                                  "Name": "Pattern",
+                                                  "Value": [
+                                                    ""
+                                                  ],
+                                                  "IsExpression": false,
+                                                  "ActionId": 39,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 244,
+                                                  "Name": "Replace",
+                                                  "Value": "####",
+                                                  "IsExpression": false,
+                                                  "ActionId": 39,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 245,
+                                                  "Name": "OutputHelpText",
+                                                  "IsExpression": false,
+                                                  "ActionId": 39,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 246,
+                                                  "Name": "Output",
+                                                  "Value": "RegexDOB",
+                                                  "IsExpression": false,
+                                                  "ActionId": 39,
+                                                  "OrderIndex": 0
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "Id": 40,
+                                              "ActionType": "PlantAnApp.CreateEntity.0.Risk",
+                                              "OrderIndex": 2,
+                                              "ActionParameters": [
+                                                {
+                                                  "Id": 247,
+                                                  "Name": "ConnectionString",
+                                                  "IsExpression": false,
+                                                  "ActionId": 40,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 248,
+                                                  "Name": "Name",
+                                                  "Value": "[JSONdata:FNAME] [JSONdata:LNAME]",
+                                                  "IsExpression": false,
+                                                  "ActionId": 40,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 249,
+                                                  "Name": "Nationality",
+                                                  "Value": "[JSONdata:NATIONALITY]",
+                                                  "IsExpression": false,
+                                                  "ActionId": 40,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 250,
+                                                  "Name": "Address",
+                                                  "Value": "[RegexAddress]",
+                                                  "IsExpression": false,
+                                                  "ActionId": 40,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 251,
+                                                  "Name": "DateOfBirth",
+                                                  "Value": "[RegexDOB]",
+                                                  "IsExpression": false,
+                                                  "ActionId": 40,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 252,
+                                                  "Name": "RiskType",
+                                                  "Value": "[JSONdata:RISK_TYPE]",
+                                                  "IsExpression": false,
+                                                  "ActionId": 40,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 253,
+                                                  "Name": "RiskLevel",
+                                                  "Value": "[JSONdata:RISK_LEVEL]",
+                                                  "IsExpression": false,
+                                                  "ActionId": 40,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 254,
+                                                  "Name": "Remarks",
+                                                  "Value": "[JSONdata:REMARKS]",
+                                                  "IsExpression": false,
+                                                  "ActionId": 40,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 255,
+                                                  "Name": "Approval",
+                                                  "Value": "[ApprovalID]",
+                                                  "IsExpression": false,
+                                                  "ActionId": 40,
+                                                  "OrderIndex": 0
+                                                },
+                                                {
+                                                  "Id": 256,
+                                                  "Name": "OutputToken",
+                                                  "IsExpression": false,
+                                                  "ActionId": 40,
+                                                  "OrderIndex": 0
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        "IsExpression": false,
+                                        "ActionId": 37,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 258,
+                                        "Name": "ContinueOnError",
+                                        "IsExpression": false,
+                                        "ActionId": 37,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 259,
+                                        "Name": "OnError",
+                                        "Value": {
+                                          "Id": 30,
+                                          "EventName": "OnError",
+                                          "Actions": []
+                                        },
+                                        "IsExpression": false,
+                                        "ActionId": 37,
+                                        "OrderIndex": 0
+                                      }
+                                    ],
+                                    "DiagramUID": "Activity_1wojwv7"
+                                  },
+                                  {
+                                    "Id": 24,
+                                    "ActionType": "PlantAnApp.ExecuteWorkflow.5",
+                                    "OrderIndex": 2,
+                                    "ActionParameters": [
+                                      {
+                                        "Id": 159,
+                                        "Name": "InputHelpText",
+                                        "IsExpression": false,
+                                        "ActionId": 24,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 160,
+                                        "Name": "AppID",
+                                        "Value": "[ApplicationID]",
+                                        "IsExpression": false,
+                                        "ActionId": 24,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 161,
+                                        "Name": "OutputHelpText",
+                                        "IsExpression": false,
+                                        "ActionId": 24,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 162,
+                                        "Name": "Output",
+                                        "Value": "CheckHighRisk",
+                                        "IsExpression": false,
+                                        "ActionId": 24,
+                                        "OrderIndex": 0
+                                      }
+                                    ],
+                                    "DiagramUID": "Activity_1tmppsa"
+                                  },
+                                  {
+                                    "Id": 25,
+                                    "Description": "",
+                                    "ActionErrorMessage": "",
+                                    "Condition": "",
+                                    "ActionType": "PlantAnApp.ExecuteConditionally",
+                                    "OrderIndex": 3,
+                                    "ActionParameters": [
+                                      {
+                                        "Id": 163,
+                                        "Name": "ConditionedActions",
+                                        "Value": [
+                                          {
+                                            "Condition": {
+                                              "IsExpression": false,
+                                              "Expression": "",
+                                              "Value": "[CheckHighRisk] == false"
+                                            },
+                                            "Actions": {
+                                              "Id": 23,
+                                              "EventName": "click",
+                                              "Actions": [
+                                                {
+                                                  "Id": 26,
+                                                  "Description": "Run SQL Query",
+                                                  "ActionType": "RunSql",
+                                                  "OrderIndex": 0,
+                                                  "ActionParameters": [
+                                                    {
+                                                      "Id": 165,
+                                                      "Name": "ConnectionString",
+                                                      "IsExpression": false,
+                                                      "ActionId": 26,
+                                                      "OrderIndex": 0
+                                                    },
+                                                    {
+                                                      "Id": 166,
+                                                      "Name": "QueryTimeout",
+                                                      "IsExpression": false,
+                                                      "ActionId": 26,
+                                                      "OrderIndex": 0
+                                                    },
+                                                    {
+                                                      "Id": 167,
+                                                      "Name": "SqlQuery",
+                                                      "Value": "SELECT 'Pending' AS Result",
+                                                      "IsExpression": false,
+                                                      "ActionId": 26,
+                                                      "OrderIndex": 0
+                                                    },
+                                                    {
+                                                      "Id": 168,
+                                                      "Name": "BindTokens",
+                                                      "IsExpression": false,
+                                                      "ActionId": 26,
+                                                      "OrderIndex": 0
+                                                    },
+                                                    {
+                                                      "Id": 169,
+                                                      "Name": "OutputTokenName",
+                                                      "Value": "Result",
+                                                      "IsExpression": false,
+                                                      "ActionId": 26,
+                                                      "OrderIndex": 0
+                                                    },
+                                                    {
+                                                      "Id": 170,
+                                                      "Name": "ExtractColumns",
+                                                      "IsExpression": false,
+                                                      "ActionId": 26,
+                                                      "OrderIndex": 0
+                                                    },
+                                                    {
+                                                      "Id": 171,
+                                                      "Name": "OnError",
+                                                      "Value": {
+                                                        "Id": 24,
+                                                        "EventName": "OnError",
+                                                        "Actions": []
+                                                      },
+                                                      "IsExpression": false,
+                                                      "ActionId": 26,
+                                                      "OrderIndex": 0
+                                                    },
+                                                    {
+                                                      "Id": 172,
+                                                      "Name": "ShowErrors",
+                                                      "IsExpression": false,
+                                                      "ActionId": 26,
+                                                      "OrderIndex": 0
+                                                    }
+                                                  ],
+                                                  "DiagramUID": "Activity_0o60cpc"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "Condition": {
+                                              "IsExpression": false,
+                                              "Expression": "",
+                                              "Value": "[CheckHighRisk] == true"
+                                            },
+                                            "Actions": {
+                                              "Id": 25,
+                                              "EventName": "click",
+                                              "Actions": [
+                                                {
+                                                  "Id": 27,
+                                                  "Description": "LOOK HERE",
+                                                  "ActionType": "ExecuteActions",
+                                                  "OrderIndex": 0,
+                                                  "ActionParameters": [
+                                                    {
+                                                      "Id": 185,
+                                                      "Name": "ActionList",
+                                                      "Value": {
+                                                        "Id": 26,
+                                                        "EventName": "click",
+                                                        "Actions": [
+                                                          {
+                                                            "Id": 32,
+                                                            "ActionType": "PlantAnApp.PartialUpdateEntity.0.Approval",
+                                                            "OrderIndex": 0,
+                                                            "ActionParameters": [
+                                                              {
+                                                                "Id": 203,
+                                                                "Name": "ConnectionString",
+                                                                "IsExpression": false,
+                                                                "ActionId": 32,
+                                                                "OrderIndex": 0
+                                                              },
+                                                              {
+                                                                "Id": 204,
+                                                                "Name": "RecordId",
+                                                                "Value": "[ApprovalID]",
+                                                                "IsExpression": false,
+                                                                "ActionId": 32,
+                                                                "OrderIndex": 0
+                                                              },
+                                                              {
+                                                                "Id": 205,
+                                                                "Name": "UpdatedProperties",
+                                                                "Value": [
+                                                                  {
+                                                                    "PropertyName": "Status",
+                                                                    "PropertyValue": {
+                                                                      "IsExpression": false,
+                                                                      "Expression": "",
+                                                                      "Value": "3"
+                                                                    }
+                                                                  }
+                                                                ],
+                                                                "IsExpression": false,
+                                                                "ActionId": 32,
+                                                                "OrderIndex": 0
+                                                              }
+                                                            ]
+                                                          },
+                                                          {
+                                                            "Id": 29,
+                                                            "ActionType": "PlantAnApp.PartialUpdateEntity.0.Application",
+                                                            "OrderIndex": 1,
+                                                            "ActionParameters": [
+                                                              {
+                                                                "Id": 180,
+                                                                "Name": "ConnectionString",
+                                                                "IsExpression": false,
+                                                                "ActionId": 29,
+                                                                "OrderIndex": 0
+                                                              },
+                                                              {
+                                                                "Id": 181,
+                                                                "Name": "RecordId",
+                                                                "Value": "[ApplicationID]",
+                                                                "IsExpression": false,
+                                                                "ActionId": 29,
+                                                                "OrderIndex": 0
+                                                              },
+                                                              {
+                                                                "Id": 182,
+                                                                "Name": "UpdatedProperties",
+                                                                "Value": [
+                                                                  {
+                                                                    "PropertyName": "Status",
+                                                                    "PropertyValue": {
+                                                                      "IsExpression": false,
+                                                                      "Expression": "",
+                                                                      "Value": "3"
+                                                                    }
+                                                                  }
+                                                                ],
+                                                                "IsExpression": false,
+                                                                "ActionId": 29,
+                                                                "OrderIndex": 0
+                                                              }
+                                                            ]
+                                                          },
+                                                          {
+                                                            "Id": 31,
+                                                            "Description": "Notify Rejection",
+                                                            "ActionType": "RunSql",
+                                                            "OrderIndex": 2,
+                                                            "ActionParameters": [
+                                                              {
+                                                                "Id": 195,
+                                                                "Name": "ConnectionString",
+                                                                "IsExpression": false,
+                                                                "ActionId": 31,
+                                                                "OrderIndex": 0
+                                                              },
+                                                              {
+                                                                "Id": 196,
+                                                                "Name": "QueryTimeout",
+                                                                "IsExpression": false,
+                                                                "ActionId": 31,
+                                                                "OrderIndex": 0
+                                                              },
+                                                              {
+                                                                "Id": 197,
+                                                                "Name": "SqlQuery",
+                                                                "Value": "SELECT 'Reject' AS Result",
+                                                                "IsExpression": false,
+                                                                "ActionId": 31,
+                                                                "OrderIndex": 0
+                                                              },
+                                                              {
+                                                                "Id": 198,
+                                                                "Name": "BindTokens",
+                                                                "IsExpression": false,
+                                                                "ActionId": 31,
+                                                                "OrderIndex": 0
+                                                              },
+                                                              {
+                                                                "Id": 199,
+                                                                "Name": "OutputTokenName",
+                                                                "Value": "Result",
+                                                                "IsExpression": false,
+                                                                "ActionId": 31,
+                                                                "OrderIndex": 0
+                                                              },
+                                                              {
+                                                                "Id": 200,
+                                                                "Name": "ExtractColumns",
+                                                                "IsExpression": false,
+                                                                "ActionId": 31,
+                                                                "OrderIndex": 0
+                                                              },
+                                                              {
+                                                                "Id": 201,
+                                                                "Name": "OnError",
+                                                                "Value": {
+                                                                  "Id": 28,
+                                                                  "EventName": "OnError",
+                                                                  "Actions": []
+                                                                },
+                                                                "IsExpression": false,
+                                                                "ActionId": 31,
+                                                                "OrderIndex": 0
+                                                              },
+                                                              {
+                                                                "Id": 202,
+                                                                "Name": "ShowErrors",
+                                                                "IsExpression": false,
+                                                                "ActionId": 31,
+                                                                "OrderIndex": 0
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      },
+                                                      "IsExpression": false,
+                                                      "ActionId": 27,
+                                                      "OrderIndex": 0
+                                                    }
+                                                  ],
+                                                  "DiagramUID": "Activity_0vkp6e8"
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ],
+                                        "IsExpression": false,
+                                        "ActionId": 25,
+                                        "OrderIndex": 0
+                                      }
+                                    ],
+                                    "DiagramUID": "Gateway_1fpggpg"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "Condition": {
+                                "IsExpression": false,
+                                "Expression": "",
+                                "Value": "[JSON:status] == \"false\" && [RequestedAmount] < 10000.00"
+                              },
+                              "Actions": {
+                                "Id": 16,
+                                "EventName": "click",
+                                "Actions": [
+                                  {
+                                    "Id": 19,
+                                    "Description": "Partially update Application",
+                                    "ActionType": "PlantAnApp.PartialUpdateEntity.0.Application",
+                                    "OrderIndex": 0,
+                                    "ActionParameters": [
+                                      {
+                                        "Id": 117,
+                                        "Name": "ConnectionString",
+                                        "IsExpression": false,
+                                        "ActionId": 19,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 118,
+                                        "Name": "RecordId",
+                                        "Value": "[ApplicationID]",
+                                        "IsExpression": false,
+                                        "ActionId": 19,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 119,
+                                        "Name": "UpdatedProperties",
+                                        "Value": [
+                                          {
+                                            "PropertyName": "Status",
+                                            "PropertyValue": {
+                                              "IsExpression": false,
+                                              "Expression": "",
+                                              "Value": "1"
+                                            }
+                                          }
+                                        ],
+                                        "IsExpression": false,
+                                        "ActionId": 19,
+                                        "OrderIndex": 0
+                                      }
+                                    ],
+                                    "DiagramUID": "Activity_1r6qgl2"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "Condition": {
+                                "IsExpression": false,
+                                "Expression": "",
+                                "Value": "[JSON:status] == \"false\" && [RequestedAmount] >= 10000.00"
+                              },
+                              "Actions": {
+                                "Id": 32,
+                                "EventName": "click",
+                                "Actions": [
+                                  {
+                                    "Id": 44,
+                                    "ActionType": "PlantAnApp.CreateEntity.0.Approval",
+                                    "OrderIndex": 0,
+                                    "ActionParameters": [
+                                      {
+                                        "Id": 275,
+                                        "Name": "ConnectionString",
+                                        "IsExpression": false,
+                                        "ActionId": 44,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 276,
+                                        "Name": "GUID",
+                                        "Value": "[ApplicantID]-[ApplicationID]-[DateTime:Now]",
+                                        "IsExpression": false,
+                                        "ActionId": 44,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 277,
+                                        "Name": "Application",
+                                        "Value": "[ApplicationID]",
+                                        "IsExpression": false,
+                                        "ActionId": 44,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 278,
+                                        "Name": "Applicant",
+                                        "Value": "[ApplicantID]",
+                                        "IsExpression": false,
+                                        "ActionId": 44,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 279,
+                                        "Name": "Status",
+                                        "Value": "4",
+                                        "IsExpression": false,
+                                        "ActionId": 44,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 280,
+                                        "Name": "OutputToken",
+                                        "Value": "ApprovalID",
+                                        "IsExpression": false,
+                                        "ActionId": 44,
+                                        "OrderIndex": 0
+                                      }
+                                    ],
+                                    "DiagramUID": "Activity_0cv9h6l"
+                                  },
+                                  {
+                                    "Id": 45,
+                                    "ActionType": "RunSql",
+                                    "OrderIndex": 1,
+                                    "ActionParameters": [
+                                      {
+                                        "Id": 281,
+                                        "Name": "ConnectionString",
+                                        "IsExpression": false,
+                                        "ActionId": 45,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 282,
+                                        "Name": "QueryTimeout",
+                                        "IsExpression": false,
+                                        "ActionId": 45,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 283,
+                                        "Name": "SqlQuery",
+                                        "Value": "SELECT 'Pending' AS Result",
+                                        "IsExpression": false,
+                                        "ActionId": 45,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 284,
+                                        "Name": "BindTokens",
+                                        "IsExpression": false,
+                                        "ActionId": 45,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 285,
+                                        "Name": "OutputTokenName",
+                                        "Value": "Result",
+                                        "IsExpression": false,
+                                        "ActionId": 45,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 286,
+                                        "Name": "ExtractColumns",
+                                        "IsExpression": false,
+                                        "ActionId": 45,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 287,
+                                        "Name": "OnError",
+                                        "Value": {
+                                          "Id": 33,
+                                          "EventName": "OnError",
+                                          "Actions": []
+                                        },
+                                        "IsExpression": false,
+                                        "ActionId": 45,
+                                        "OrderIndex": 0
+                                      },
+                                      {
+                                        "Id": 288,
+                                        "Name": "ShowErrors",
+                                        "IsExpression": false,
+                                        "ActionId": 45,
+                                        "OrderIndex": 0
+                                      }
+                                    ],
+                                    "DiagramUID": "Activity_1ws2ey0"
+                                  }
+                                ]
+                              }
+                            }
+                          ],
+                          "IsExpression": false,
+                          "ActionId": 13,
+                          "OrderIndex": 0
+                        }
+                      ],
+                      "DiagramUID": "Gateway_1u4jme4"
+                    }
+                  ]
+                }
+              }
+            ],
+            "IsExpression": false,
+            "ActionId": 6,
+            "OrderIndex": 0
+          }
+        ],
+        "DiagramUID": "Gateway_03f1jhk"
+      }
+    ]
+  },
+  "CreatedBy": "SuperUser Account",
+  "CreatedOn": "2021-03-09T10:07:33.4695882+00:00",
+  "LastModifiedBy": "SuperUser Account",
+  "LastModifiedOn": "2021-03-09T16:08:49.2885522+00:00",
+  "InputFields": [
+    {
+      "Required": false,
+      "Id": 11,
+      "Name": "LengthMonths",
+      "InputType": "Integer",
+      "WorkflowId": 4,
+      "IsDeleted": false
+    },
+    {
+      "Required": false,
+      "Id": 12,
+      "Name": "Age",
+      "InputType": "Integer",
+      "WorkflowId": 4,
+      "IsDeleted": false
+    },
+    {
+      "Required": false,
+      "Id": 13,
+      "Name": "Income",
+      "InputType": "Decimal",
+      "WorkflowId": 4,
+      "IsDeleted": false
+    },
+    {
+      "Required": false,
+      "Id": 14,
+      "Name": "Installment",
+      "InputType": "Decimal",
+      "WorkflowId": 4,
+      "IsDeleted": false
+    },
+    {
+      "Required": false,
+      "Id": 15,
+      "Name": "FirstName",
+      "InputType": "Text",
+      "WorkflowId": 4,
+      "IsDeleted": false
+    },
+    {
+      "Required": false,
+      "Id": 16,
+      "Name": "LastName",
+      "InputType": "Text",
+      "WorkflowId": 4,
+      "IsDeleted": false
+    },
+    {
+      "Required": false,
+      "Id": 17,
+      "Name": "RequestedAmount",
+      "InputType": "Decimal",
+      "WorkflowId": 4,
+      "IsDeleted": false
+    }
+  ],
+  "OutputFields": [
+    {
+      "Value": "[Result]",
+      "Id": 18,
+      "Name": "Output",
+      "InputType": "Text",
+      "WorkflowId": 4,
+      "IsDeleted": false
+    },
+    {
+      "Value": "[ApplicationID]",
+      "Id": 22,
+      "Name": "ApplicationID",
+      "InputType": "Text",
+      "WorkflowId": 4,
+      "IsDeleted": false
+    },
+    {
+      "Value": "[ApplicantID]",
+      "Id": 23,
+      "Name": "ApplicantID",
+      "InputType": "Text",
+      "WorkflowId": 4,
+      "IsDeleted": false
+    }
+  ]
+}

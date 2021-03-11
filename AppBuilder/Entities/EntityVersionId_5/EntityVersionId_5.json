@@ -1,0 +1,13 @@
+{
+  "DisplayInMenu": true,
+  "ParentPageId": -1,
+  "RecordNamePropertyId": 7,
+  "Id": 5,
+  "VersionId": 5,
+  "EntityTabId": 43,
+  "Name": "Applicant",
+  "PluralName": "Applicants",
+  "Icon": "user-alt",
+  "Type": "UserCreated",
+  "EnableIndexing": false
+}

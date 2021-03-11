@@ -2,12 +2,11 @@
   "id": 3,
   "namespace": {
     "id": 2,
-    "portalId": 0,
     "name": "LoanApp"
   },
   "name": "RenderApplication",
   "description": "",
-  "parser": "",
+  "parser": "<parser><type>string</type><replace>false</replace><decodeHtml>false</decodeHtml></parser>",
   "defaultValue": "",
   "cacheTime": 0,
   "cacheLayer": "Global",

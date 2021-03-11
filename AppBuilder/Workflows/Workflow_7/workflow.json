@@ -1,0 +1,120 @@
+{
+  "Id": 7,
+  "Name": "New Workflow",
+  "Description": "test",
+  "IsDebug": false,
+  "ActionList": {
+    "Id": 34,
+    "EventName": "Event",
+    "Actions": [
+      {
+        "Id": 46,
+        "ActionType": "SendMail",
+        "OrderIndex": 0,
+        "ActionParameters": [
+          {
+            "Id": 290,
+            "Name": "From",
+            "IsExpression": false,
+            "ActionId": 46,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 291,
+            "Name": "To",
+            "Value": "andrei.croitoru@avatar-soft.ro",
+            "IsExpression": false,
+            "ActionId": 46,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 292,
+            "Name": "DetermineEmail",
+            "IsExpression": false,
+            "ActionId": 46,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 293,
+            "Name": "ToAllUsers",
+            "IsExpression": false,
+            "ActionId": 46,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 294,
+            "Name": "ReplyTo",
+            "IsExpression": false,
+            "ActionId": 46,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 295,
+            "Name": "Cc",
+            "IsExpression": false,
+            "ActionId": 46,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 296,
+            "Name": "Bcc",
+            "IsExpression": false,
+            "ActionId": 46,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 297,
+            "Name": "Subject",
+            "IsExpression": false,
+            "ActionId": 46,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 298,
+            "Name": "Format",
+            "Value": "Html",
+            "IsExpression": false,
+            "ActionId": 46,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 299,
+            "Name": "Body",
+            "Value": "<p>test</p>",
+            "IsExpression": false,
+            "ActionId": 46,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 300,
+            "Name": "Headers",
+            "IsExpression": false,
+            "ActionId": 46,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 301,
+            "Name": "PortalFiles",
+            "IsExpression": false,
+            "ActionId": 46,
+            "OrderIndex": 0
+          },
+          {
+            "Id": 302,
+            "Name": "FileToken1",
+            "IsExpression": false,
+            "ActionId": 46,
+            "OrderIndex": 0
+          }
+        ],
+        "DiagramUID": "Activity_0oifkhl"
+      }
+    ]
+  },
+  "CreatedBy": "Andrei Croitoru",
+  "CreatedOn": "2021-03-11T15:01:54.9719577+00:00",
+  "LastModifiedBy": "Andrei Croitoru",
+  "LastModifiedOn": "2021-03-11T15:01:54.9719577+00:00",
+  "InputFields": [],
+  "OutputFields": []
+}

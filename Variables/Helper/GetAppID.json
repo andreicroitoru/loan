@@ -1,0 +1,20 @@
+{
+  "id": 4,
+  "namespace": {
+    "id": 1,
+    "name": "Helper"
+  },
+  "name": "GetAppID",
+  "description": "",
+  "parser": "<parser><type>string</type><replace>false</replace><decodeHtml>false</decodeHtml></parser>",
+  "defaultValue": "",
+  "cacheTime": 0,
+  "cacheLayer": "Global",
+  "src": {
+    "sql": "SELECT A.Id\nFROM app.Application AS A\nINNER JOIN app.Applicant AS apl ON apl.Id = A.Applicant\nWHERE apl.UserID = '[TknParams:User]'",
+    "defaultColumn": "Id",
+    "columns": "Id",
+    "connectionString": "",
+    "type": "db"
+  }
+}

@@ -57,10 +57,6 @@
             "value": "[RecordId]"
           },
           {
-            "name": "InstallmentRate",
-            "value": "[Record:InstallmentRate]"
-          },
-          {
             "name": "Applicant",
             "value": "[Record:Applicant]"
           },
@@ -87,6 +83,10 @@
           {
             "name": "Signature",
             "value": "[Record:Signature]"
+          },
+          {
+            "name": "InstallmentRate",
+            "value": "[Record:InstallmentRate]"
           }
         ],
         "Headers": []

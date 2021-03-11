@@ -1,0 +1,17 @@
+{
+  "id": 10,
+  "namespace": {
+    "id": 1,
+    "name": "Helper"
+  },
+  "name": "SecureAPIToken",
+  "description": "Secure token to access API",
+  "parser": "<parser><type>string</type><replace>false</replace><decodeHtml>false</decodeHtml></parser>",
+  "defaultValue": "",
+  "cacheTime": 0,
+  "cacheLayer": "Global",
+  "src": {
+    "value": "809152a304msh957f7658982b88ep13437cjsnbfaa10eecb31",
+    "type": "string"
+  }
+}

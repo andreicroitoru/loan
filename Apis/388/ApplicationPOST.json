@@ -162,10 +162,6 @@
             "value": "[CreatedRecordId]"
           },
           {
-            "name": "InstallmentRate",
-            "value": "[CreatedRecord:InstallmentRate]"
-          },
-          {
             "name": "Applicant",
             "value": "[CreatedRecord:Applicant]"
           },
@@ -192,6 +188,10 @@
           {
             "name": "Signature",
             "value": "[CreatedRecord:Signature]"
+          },
+          {
+            "name": "InstallmentRate",
+            "value": "[CreatedRecord:InstallmentRate]"
           }
         ],
         "Headers": [

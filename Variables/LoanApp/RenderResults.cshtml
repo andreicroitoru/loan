@@ -1,0 +1,29 @@
+@inherits avt.MyTokens.Core.ParsingEngine.RazorTemplate
+@{
+  var data = LoanApp.GetResultsChartData(AppId:TknParams.AppId.Value.ToString());
+  } 
+
+<table class="table tb">
+    <tbody>
+        <tr class="success">
+            <td class="text-center" colspan="2"><strong>Results</strong></td>
+
+        </tr>
+        <tr class="info">
+          <td style="text-align: left; vertical-align: middle; font-weight:bold;">Interest Rate</td>
+          <td>5 %</td>
+
+      </tr>
+        <tr class="bg-light">
+            <td style="text-align: left; vertical-align: middle; font-weight:bold; background-color: #dbdbdb;">Total of @data.Length Monthly Payments</td>
+            <td style="background-color: #dbdbdb;">$ @data.TotalToPay</td>
+        </tr>
+        
+        <tr>
+              <td style="text-align: left; vertical-align: middle; font-weight:bold; background-color: #dbdbdb;">Total Interest Paid</td> 
+              <td style="background-color: #dbdbdb;">$ @data.InstallmentRate</td>
+          </tr>
+
+        </tr>
+    </tbody>
+</table>

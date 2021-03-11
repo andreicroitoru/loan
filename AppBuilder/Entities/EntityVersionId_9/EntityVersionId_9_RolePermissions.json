@@ -298,5 +298,17 @@
       "RoleName": "Functionary",
       "Value": "all"
     }
+  ],
+  "11": [
+    {
+      "Id": 229,
+      "PermissionType": {
+        "Id": 1,
+        "Name": "Can View"
+      },
+      "RoleId": 11,
+      "RoleName": "Manager",
+      "Value": "all"
+    }
   ]
 }

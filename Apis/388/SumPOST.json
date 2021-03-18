@@ -1,0 +1,60 @@
+{
+  "Name": "Sum",
+  "HttpMethod": "POST",
+  "IsEnabled": true,
+  "OrderIndex": 0,
+  "CrossDomainPolicy": "Public",
+  "Inputs": [
+    {
+      "Name": "A",
+      "IsDeleted": false,
+      "IsEnabled": true,
+      "OrderIndex": 0,
+      "Parameters": {
+        "Value": ""
+      },
+      "InputTypeStr": "number",
+      "Validations": []
+    },
+    {
+      "Name": "B",
+      "IsDeleted": false,
+      "IsEnabled": true,
+      "OrderIndex": 1,
+      "Parameters": {
+        "Value": ""
+      },
+      "InputTypeStr": "number",
+      "Validations": []
+    }
+  ],
+  "Actions": [
+    {
+      "ActionType": "ExecuteJavascript",
+      "OrderIndex": 1,
+      "Parameters": {
+        "ScriptName": "",
+        "LocalVariables": "",
+        "Code": "return A+B;",
+        "OutputTokenName": "Sum",
+        "OnError": []
+      },
+      "IsEnabled": true,
+      "ExecutionType": "OnExecute",
+      "Metadata": {}
+    },
+    {
+      "ActionType": "RawResponse",
+      "OrderIndex": 2,
+      "Parameters": {
+        "Content": "[Sum]",
+        "HttpCode": "",
+        "Headers": ""
+      },
+      "IsEnabled": true,
+      "ExecutionType": "OnExecute",
+      "Metadata": {}
+    }
+  ],
+  "OnErrorActions": []
+}

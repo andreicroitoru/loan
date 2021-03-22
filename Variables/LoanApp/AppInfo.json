@@ -2,7 +2,6 @@
   "id": 2,
   "namespace": {
     "id": 2,
-    "portalId": 0,
     "name": "LoanApp"
   },
   "name": "AppInfo",

@@ -1,0 +1,102 @@
+{
+  "Id": 8,
+  "Name": "REZA EXECUTE ACTIONS ISSUE",
+  "Description": "",
+  "IsDebug": false,
+  "ActionList": {
+    "Id": 35,
+    "EventName": "Event",
+    "Actions": [
+      {
+        "Id": 47,
+        "ActionType": "ExecuteActions",
+        "OrderIndex": 0,
+        "ActionParameters": [
+          {
+            "Id": 306,
+            "Name": "ActionList",
+            "Value": {
+              "Id": 36,
+              "EventName": "click",
+              "Actions": [
+                {
+                  "Id": 48,
+                  "Description": "3",
+                  "ActionType": "InjectData",
+                  "OrderIndex": 0,
+                  "ActionParameters": [
+                    {
+                      "Id": 303,
+                      "Name": "Data",
+                      "Value": [
+                        {
+                          "value": "[inj3]",
+                          "name": "t3"
+                        }
+                      ],
+                      "IsExpression": false,
+                      "ActionId": 48,
+                      "OrderIndex": 0
+                    }
+                  ]
+                },
+                {
+                  "Id": 49,
+                  "Description": "3",
+                  "ActionType": "InjectData",
+                  "OrderIndex": 1,
+                  "ActionParameters": [
+                    {
+                      "Id": 304,
+                      "Name": "Data",
+                      "Value": [
+                        {
+                          "value": "[inj3]",
+                          "name": "t3"
+                        }
+                      ],
+                      "IsExpression": false,
+                      "ActionId": 49,
+                      "OrderIndex": 0
+                    }
+                  ]
+                },
+                {
+                  "Id": 50,
+                  "Description": "3",
+                  "ActionType": "InjectData",
+                  "OrderIndex": 2,
+                  "ActionParameters": [
+                    {
+                      "Id": 305,
+                      "Name": "Data",
+                      "Value": [
+                        {
+                          "value": "[inj3]",
+                          "name": "t3"
+                        }
+                      ],
+                      "IsExpression": false,
+                      "ActionId": 50,
+                      "OrderIndex": 0
+                    }
+                  ]
+                }
+              ]
+            },
+            "IsExpression": false,
+            "ActionId": 47,
+            "OrderIndex": 0
+          }
+        ],
+        "DiagramUID": "Activity_0konx9x"
+      }
+    ]
+  },
+  "CreatedBy": "SuperUser Account",
+  "CreatedOn": "2021-04-08T09:26:06.3057024+00:00",
+  "LastModifiedBy": "SuperUser Account",
+  "LastModifiedOn": "2021-04-08T09:26:06.3057024+00:00",
+  "InputFields": [],
+  "OutputFields": []
+}

@@ -1,5 +1,5 @@
 {
-  "ApplicationName": "Loan Application Program",
+  "ApplicationName": "Loan Application",
   "GitRepositoryUrl": "https://github.com/andreicroitoru/loan.git",
   "EnableMobileLogin": false,
   "ResetPasswordTabId": 33,

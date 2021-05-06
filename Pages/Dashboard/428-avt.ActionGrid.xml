@@ -164,7 +164,7 @@
       &lt;ShowOnMobile&gt;false&lt;/ShowOnMobile&gt;
       &lt;ShowOnTablet&gt;false&lt;/ShowOnTablet&gt;
       &lt;ShowOnDesktop&gt;false&lt;/ShowOnDesktop&gt;
-      &lt;ShowOnLargeScreens&gt;false&lt;/ShowOnLargeScreens&gt;
+      &lt;ShowOnLargeScreens&gt;true&lt;/ShowOnLargeScreens&gt;
       &lt;MetadataJson&gt;{}&lt;/MetadataJson&gt;
       &lt;Metadata /&gt;
     &lt;/FieldInfo&gt;

@@ -2,7 +2,6 @@
   "id": 8,
   "namespace": {
     "id": 2,
-    "portalId": 0,
     "name": "LoanApp"
   },
   "name": "PaymentBreakdown",

@@ -1091,7 +1091,11 @@
                                                                 "Name": "UpdatedProperties",
                                                                 "Value": [
                                                                   {
-                                                                    "PropertyName": "Status",
+                                                                    "PropertyName": {
+                                                                      "IsExpression": false,
+                                                                      "Expression": "",
+                                                                      "Value": "Status"
+                                                                    },
                                                                     "PropertyValue": {
                                                                       "IsExpression": false,
                                                                       "Expression": "",
@@ -1130,7 +1134,11 @@
                                                                 "Name": "UpdatedProperties",
                                                                 "Value": [
                                                                   {
-                                                                    "PropertyName": "Status",
+                                                                    "PropertyName": {
+                                                                      "IsExpression": false,
+                                                                      "Expression": "",
+                                                                      "Value": "Status"
+                                                                    },
                                                                     "PropertyValue": {
                                                                       "IsExpression": false,
                                                                       "Expression": "",
@@ -1274,7 +1282,11 @@
                                         "Name": "UpdatedProperties",
                                         "Value": [
                                           {
-                                            "PropertyName": "Status",
+                                            "PropertyName": {
+                                              "IsExpression": false,
+                                              "Expression": "",
+                                              "Value": "Status"
+                                            },
                                             "PropertyValue": {
                                               "IsExpression": false,
                                               "Expression": "",
@@ -1455,7 +1467,7 @@
   "CreatedBy": "SuperUser Account",
   "CreatedOn": "2021-03-09T10:07:33.4695882+00:00",
   "LastModifiedBy": "SuperUser Account",
-  "LastModifiedOn": "2021-03-11T16:54:32.4726282+00:00",
+  "LastModifiedOn": "2021-05-25T07:54:06.8308831+00:00",
   "InputFields": [
     {
       "Required": false,

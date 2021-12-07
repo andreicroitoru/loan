@@ -1,0 +1,14 @@
+{
+  "DisplayInMenu": true,
+  "ParentPageId": -1,
+  "RecordNamePropertyId": 39,
+  "ShowDashboardModule": false,
+  "Id": 10,
+  "VersionId": 10,
+  "EntityTabId": 62,
+  "Name": "Company",
+  "PluralName": "Companies",
+  "Icon": "table",
+  "Type": "UserCreated",
+  "EnableIndexing": false
+}

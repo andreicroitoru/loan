@@ -1,0 +1,44 @@
+{
+  "Name": "MyApi",
+  "HttpMethod": "GET",
+  "IsEnabled": true,
+  "OrderIndex": 0,
+  "CrossDomainPolicy": "Public",
+  "Inputs": [
+    {
+      "Name": "Id",
+      "IsDeleted": false,
+      "IsEnabled": true,
+      "OrderIndex": 0,
+      "Parameters": {
+        "Value": ""
+      },
+      "InputTypeStr": "text",
+      "Validations": [
+        {
+          "Data": "{\"Message\":\"{FieldName} is required\"}",
+          "Type": "default-required",
+          "IsDeleted": false,
+          "IsEnabled": false,
+          "OrderIndex": 0,
+          "Metadata": {}
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "ActionType": "RawResponse",
+      "OrderIndex": 0,
+      "Parameters": {
+        "Content": "Hello world",
+        "HttpCode": "",
+        "Headers": ""
+      },
+      "IsEnabled": true,
+      "ExecutionType": "OnExecute",
+      "Metadata": {}
+    }
+  ],
+  "OnErrorActions": []
+}
